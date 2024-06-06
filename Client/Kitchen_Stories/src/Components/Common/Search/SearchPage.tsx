@@ -5,7 +5,7 @@ import { IoSearchSharp } from "react-icons/io5";
 interface SearchPageProps {
     onChange: (e: ChangeEvent<HTMLInputElement>) => void;
     onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
-    onClick: (e: React.MouseEvent<SVGAElement>) => void;
+    onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
     idName: string;
     ContainerStyle: string;
     Heading: string;
@@ -14,27 +14,29 @@ interface SearchPageProps {
     Placeholder: string;
     inputStyle: string;
     Search: string;
+    ButtonStyle: string;
     IconStyle: string;
     SearchError: string;
+    ErrorStyle: string;
     Text: string;
     Results: string;
 }
 
-const Search: React.FC<SearchPageProps> = ({ idName, ContainerStyle, Heading, HeadingStyle, onSubmit, formStyle, Placeholder, inputStyle, Search, onChange, onClick, IconStyle,  SearchError, Text, Results }) => {
+const SearchPage: React.FC<SearchPageProps> = ({ idName, ContainerStyle, Heading, HeadingStyle, onSubmit, formStyle, Placeholder, inputStyle, Search, onChange, onClick, ButtonStyle, IconStyle,  SearchError, ErrorStyle, Text, Results }) => {
 return (
     <div id={idName} className={ContainerStyle} >
         <h1 className={HeadingStyle}>{Heading}</h1>
         <form onSubmit={onSubmit} className={formStyle}>
             <GiKnifeFork size="1.8rem" color="black" />
             <input type="text" placeholder={Placeholder} className={inputStyle} value={Search} onChange={onChange} />
-            <button><IoSearchSharp size="1.8rem" color="black" className={IconStyle} onClick={onClick} /></button>
+            <button onClick={onClick} className={ButtonStyle}><IoSearchSharp size="1.8rem" color="white" className={IconStyle} /></button>
         </form> 
-        <span className="Error">{SearchError}</span>
+        <span className={ErrorStyle}>{SearchError}</span>
         <p>{Text}</p>
         <p>{Results}</p>
     </div>
 )
 }
 
-export default Search
+export default SearchPage
 

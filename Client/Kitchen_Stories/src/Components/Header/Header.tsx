@@ -1,17 +1,19 @@
 import React from 'react';
 import Logo from "../../assets/Logo.jpg";
 import { Link } from 'react-router-dom';
+import Button from '../Common/Button/Button';
 
 const Header: React.FC = () => {
 return (
-    <div>
+    <div className='flex items-center justify-between px-2'>
         <section>
-            <Link to="/Home" className='Link'  >
-                <img src={Logo} alt="" />
+            <Link to="/Home" className='flex gap-4 items-center justify-center text-black no-underline'>
+                <img src={Logo} alt="" width="60px" />
+                <h1 className='font-bold text-4xl' >Kitchen Stories</h1>
             </Link>
         </section>
         <section>
-            <nav>
+            <nav className='flex gap-5 items-center justify-center' >
                 <Link to="/Home" className='text-black no-underline'>
                     <p>Home</p> 
                 </Link>
@@ -24,7 +26,7 @@ return (
                 <Link to="/Nationality" className='text-black no-underline'  >
                     <p>Nationality</p>
                 </Link>
-                <Link to="/Favourites" className='text-black no-underline'>
+                <Link to="/Favourites" className='text-black no-underline sm: hidden'>
                     <p>Favourites</p>
                 </Link>
                 <Link to="/Create" className='text-black no-underline'>
@@ -33,14 +35,11 @@ return (
                 <Link to="/MyRecipes" className='text-black no-underline'> 
                     <p>My Recipes</p>
                 </Link>
-                <Link to="/Favourites" className='text-black no-underline'> 
-                    <p>Favourites</p>
-                </Link>
             </nav>
         </section>
         <section>
         <Link to="/Favourites" className='' >
-            
+            <Button ButtonText='Favourites Recipes' ButtonStyle='bg-black px-3 py-2 rounded text-white' />
         </Link>
         </section>
     </div>
