@@ -5,6 +5,7 @@ import Home from './Pages/Home/Home';
 import Explore from './Pages/Explore/Explore';
 import Categories from './Pages/Categories/Categories';
 import Nationality from './Pages/Nationality/Nationality';
+import Create from './Pages/Create/Create';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path='/Explore' element={ <Explore /> } />
         <Route path='/Categories' element={ <Categories /> } />
         <Route path='/Nationality' element={ <Nationality /> } />
+        <Route path='/Create' element={ <Create /> } />
       </Routes>
     </div>
   )
