@@ -1,13 +1,14 @@
-import React, { ChangeEvent, useState } from 'react';
 import '../Home/Home.css';
+import { Link } from 'react-router-dom';
+import React, { ChangeEvent, useState } from 'react';
 import SearchPage from '../../Components/Common/Search/SearchPage';
-
 
 const Home: React.FC = () => {
 
     const [Recipes, setRecipes] = useState([])
     const [Search, setSearch] = useState("")
     const [SearchError, setSearchError] = useState("")
+    const [Results, setResults] = useState("")
 
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
         setSearch(e.target.value)
@@ -23,6 +24,7 @@ const Home: React.FC = () => {
             .then(response => response.json())
             .then((data) => {
                 setRecipes(data.meals)
+                setResults("Results for your search will be displayed below the popular recipes section.")
             })
             .catch(err => console.error(err));
         }
@@ -38,6 +40,7 @@ const Home: React.FC = () => {
             .then(response => response.json())
             .then((data) => {
                 setRecipes(data.meals)
+                setResults("Results for your search will be displayed below the popular recipes section.")
             })
             .catch(err => console.error(err));
         }
@@ -47,7 +50,7 @@ return (
     <div>
         <SearchPage
             idName= 'Home'
-            ContainerStyle= 'flex flex-col items-center justify-center gap-5 mb-5 text-white'
+            ContainerStyle= 'flex flex-col items-center justify-center gap-5 mb-10 text-white'
             Heading= 'Your desired dish ?'
             HeadingStyle= 'font-bold text-4xl'
             formStyle= 'bg-white flex flex-row items-center justify-between gap-1 px-1 py-1 rounded w-2/5'
@@ -62,7 +65,28 @@ return (
             SearchError= {SearchError}
             Text= 'Search any recipe e.g burger, pizza, sandwich'
             ErrorStyle='text-red-700'
+            Results={Results}
         />
+        
+        <section className='grid grid-cols-3 gap-10 px-10 '>
+            {
+            (!Recipes) ? <h2 className='text-red-700 text-3xl'>No Results Found</h2> :
+            Recipes.map((Recipe: any ) => {
+            return (
+                <div>
+                    <Link className='text-black no-underline' to={`/${Recipe.idMeal}`} >
+                        {/* <figure className='flex flex-col gap-5' >
+                            <img src={Recipe.strMealThumb} alt="" width="500px" className='rounded' /> 
+                            <figcaption>
+                                <h2 className='capitalize font-bold text-center text-2xl' >{Recipe.strMeal}</h2>
+                            </figcaption>
+                        </figure> */}
+                    </Link>
+                </div>
+            )
+            })
+            } 
+        </section>
     </div>
 )
 }   
