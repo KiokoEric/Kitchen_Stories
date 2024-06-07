@@ -1,6 +1,7 @@
 import '../Home/Home.css';
 import { Link } from 'react-router-dom';
 import React, { ChangeEvent, useState } from 'react';
+import Output from '../../Components/Common/Output/Output';
 import SearchPage from '../../Components/Common/Search/SearchPage';
 
 const Home: React.FC = () => {
@@ -68,19 +69,20 @@ return (
             Results={Results}
         />
         
-        <section className='grid grid-cols-3 gap-10 px-10 '>
+        <section className='grid grid-cols-3 gap-5 px-10 '>
             {
             (!Recipes) ? <h2 className='text-red-700 text-3xl'>No Results Found</h2> :
             Recipes.map((Recipe: any ) => {
             return (
                 <div>
-                    <Link className='text-black no-underline' to={`/${Recipe.idMeal}`} >
-                        {/* <figure className='flex flex-col gap-5' >
-                            <img src={Recipe.strMealThumb} alt="" width="500px" className='rounded' /> 
-                            <figcaption>
-                                <h2 className='capitalize font-bold text-center text-2xl' >{Recipe.strMeal}</h2>
-                            </figcaption>
-                        </figure> */}
+                    <Link className=' text-black no-underline' to={`/${Recipe.idMeal}`} >
+                        <Output
+                            figureStyle='flex flex-col gap-5 mb-5'
+                            image={Recipe.strMealThumb}
+                            imageStyle='rounded w-11/12'
+                            TitleStyle='capitalize font-bold text-center text-3xl'
+                            Title={Recipe.strMeal}
+                        />
                     </Link>
                 </div>
             )

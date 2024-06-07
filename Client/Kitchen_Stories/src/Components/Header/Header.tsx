@@ -14,7 +14,7 @@ return (
         </section>
         <section>
             <nav className='flex gap-5 items-center justify-center' >
-                <Link to="/Home" className='text-black no-underline'>
+                <Link to="/" className='text-black no-underline'>
                     <p>Home</p> 
                 </Link>
                 <Link to="/Explore" className='text-black no-underline'>
