@@ -70,7 +70,7 @@ return (
         />
         <section className='grid grid-cols-3 gap-5 px-10 '>
             {
-            (!Recipes) ? <h2 className='text-red-700 text-3xl'>No Results Found</h2> :
+            (!Recipes) ? <h2 className='font-bold text-red-700 text-center text-3xl'>No Results Found</h2> :
             Recipes.map((Recipe: any ) => {
             return (
                 <div>

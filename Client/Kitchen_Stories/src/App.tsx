@@ -5,7 +5,6 @@ import Home from './Pages/Home/Home';
 import Explore from './Pages/Explore/Explore';
 import Categories from './Pages/Categories/Categories';
 
-
 function App() {
 
   return (
