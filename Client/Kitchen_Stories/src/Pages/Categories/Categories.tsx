@@ -79,20 +79,18 @@ return (
         </section>
         <section className='grid grid-cols-3 gap-5 px-10 '>
             {
-            (!Categories) ? <h2 className='text-red-700 text-3xl'>No Results Found</h2> :
+            (!Categories) ? <h2 className='font-bold text-red-700 text-center text-3xl'>No Results Found</h2> :
             Categories.map((Category: any ) => {
             return (
-                <div>
-                    <Link className=' text-black no-underline' to={`/${Category.idMeal}`} >
-                        <Output
-                            figureStyle='flex flex-col gap-5 mb-5'
-                            image={Category.strMealThumb}
-                            imageStyle='rounded w-11/12'
-                            TitleStyle='capitalize font-bold text-center text-3xl'
-                            Title={Category.strMeal}
-                        />
-                    </Link>
-                </div>
+                <Link className=' text-black no-underline' to={`/${Category.idMeal}`} >
+                    <Output
+                        figureStyle='flex flex-col gap-5 mb-5'
+                        image={Category.strMealThumb}
+                        imageStyle='rounded w-11/12'
+                        TitleStyle='capitalize font-bold text-center text-3xl'
+                        Title={Category.strMeal}
+                    />
+                </Link>
             )
             })
             } 
