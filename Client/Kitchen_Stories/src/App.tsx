@@ -4,6 +4,8 @@ import Header from './Components/Header/Header';
 import Home from './Pages/Home/Home';
 import Explore from './Pages/Explore/Explore';
 import Categories from './Pages/Categories/Categories';
+import Nationality from './Pages/Nationality/Nationality';
+
 
 function App() {
 
@@ -14,6 +16,7 @@ function App() {
         <Route path='/' element={ <Home /> } />
         <Route path='/Explore' element={ <Explore /> } />
         <Route path='/Categories' element={ <Categories /> } />
+        <Route path='/Nationality' element={ <Nationality /> } />
       </Routes>
     </div>
   )
