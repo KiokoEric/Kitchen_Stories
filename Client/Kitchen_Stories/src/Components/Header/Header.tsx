@@ -13,7 +13,7 @@ return (
             </Link>
         </section>
         <section>
-            <nav className='flex gap-5 items-center justify-center' >
+            <nav className='flex gap-10 items-center justify-center' >
                 <Link to="/" className='text-black no-underline'>
                     <p>Home</p> 
                 </Link>
