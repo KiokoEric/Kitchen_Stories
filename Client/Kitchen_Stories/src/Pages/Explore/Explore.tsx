@@ -59,14 +59,14 @@ return (
             Recipes.map((Recipe : any) => {
                 return (
                 <div key={Recipe.idMeal}  >
-                    <Link className='Link' to={`/${Recipe.idMeal}`} >
+                    <Link  className='text-black no-underline' to={`/${Recipe.idMeal}`} >
                     <Output
-                            figureStyle='flex flex-col gap-5 mb-5'
-                            image={Recipe.strMealThumb}
-                            imageStyle='rounded w-11/12'
-                            TitleStyle='capitalize font-bold text-center text-3xl'
-                            Title={Recipe.strMeal}
-                        />
+                        figureStyle='flex flex-col gap-5 mb-5'
+                        image={Recipe.strMealThumb}
+                        imageStyle='rounded w-11/12'
+                        TitleStyle='capitalize font-bold text-center text-3xl'
+                        Title={Recipe.strMeal}
+                    />
                     </Link>
                 </div>
                 )
