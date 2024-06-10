@@ -46,7 +46,7 @@ return (
             Alphabets.map((Alphabet) => {
                 return (
                     <div key={num++} onClick={()=>setIndex(Alphabet)} className='flex gap-3'  >
-                        <h3 className='bg-yellow-700 cursor-pointer text-black px-2 py-1 rounded' >{Alphabet}</h3>
+                        <h3 className='bg-darkOrange cursor-pointer font-bold text-black text-lg px-2 py-1 rounded' >{Alphabet}</h3>
                     </div>
                     
                 )

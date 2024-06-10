@@ -61,7 +61,7 @@ return (
             onChange= {handleSearch}
             onSubmit= {getRecipe}
             onClick= {onSearch}
-            ButtonStyle= 'bg-yellow-600 px-3 py-1 rounded'
+            ButtonStyle= 'bg-Orange px-3 py-1 rounded'
             IconStyle= 'cursor-pointer'
             SearchError= {SearchError}
             Text= 'Search any recipe e.g burger, pizza, sandwich'
