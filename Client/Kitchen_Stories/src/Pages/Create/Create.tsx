@@ -43,23 +43,23 @@ return (
         />
         <section className='flex flex-col items-center mb-5'>
             <form method="post" encType="multipart/form-data" className='flex flex-col gap-5' >
-                <div className='flex flex-col gap-5'>
+                <div className='flex flex-col gap-2'>
                     <label htmlFor="">Name</label> 
                     <input type="text" placeholder="Enter Name..." value={Name} onChange={handleName} className='border-black border-b outline-none px-1 py-2 text-black w-96' required />
                 </div>
-                <div className='flex flex-col gap-5'>
+                <div className='flex flex-col gap-2'>
                     <label htmlFor="">Description</label>
                     <textarea className="border-black border-b h-20 outline-none px-1 py-2 w-96"  placeholder="Enter Description..." value={Description} onChange={handleDescription} required></textarea>
                 </div>
-                <div className='flex flex-col gap-5'>
+                <div className='flex flex-col gap-2'>
                     <label htmlFor="">Ingredients</label>
                     <textarea placeholder='Enter Ingredients...' className="border-black border-b h-20 outline-none px-1 py-2 w-96" value={Ingredients} onChange={handleIngredients} required ></textarea>
                 </div>
-                <div className='flex flex-col gap-5'>
+                <div className='flex flex-col gap-2'>
                     <label htmlFor="">Instructions</label>
                     <textarea placeholder='Enter Instructions...' className="border-black border-b h-20 px-1 outline-none py-2 w-96" value={Instructions} onChange={handleInstructions} required ></textarea>
                 </div>
-                <div className='flex flex-col gap-5'>
+                <div className='flex flex-col gap-2'>
                     <label htmlFor="">Image</label>
                     <input type="text" placeholder='Enter Image Url...' value={Image} onChange={handleImage} className='border-black border-b outline-none px-2 py-1 text-black w-96' required />
                 </div>
@@ -78,4 +78,5 @@ return (
 }
 
 export default Create
+
 
