@@ -73,7 +73,7 @@ return (
                     <option value="Vegan">Vegan</option>
                     <option value="Vegetarian">Vegetarian</option>
                 </select>
-                <button onClick={onSearch} className="bg-yellow-600 px-3 py-1 rounded"><IoSearchSharp size="1.8rem" color="white" className="cursor-pointer" /></button>
+                <button onClick={onSearch} className="bg-Orange px-3 py-1 rounded"><IoSearchSharp size="1.8rem" color="white" className="cursor-pointer" /></button>
             </form> 
             <span className='text-red-700'>{SearchError}</span>
         </section>

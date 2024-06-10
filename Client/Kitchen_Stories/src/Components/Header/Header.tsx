@@ -15,31 +15,31 @@ return (
         <section>
             <nav className='flex gap-10 items-center justify-center' >
                 <Link to="/" className='text-black no-underline'>
-                    <p>Home</p> 
+                    Home
                 </Link>
                 <Link to="/Explore" className='text-black no-underline'>
-                    <p>Explore</p>
+                    Explore
                 </Link>
                 <Link to="/Categories" className='text-black no-underline'>
-                    <p>Categories</p>
+                    Categories
                 </Link>
                 <Link to="/Nationality" className='text-black no-underline'  >
-                    <p>Nationality</p>
+                    Nationality
                 </Link>
                 <Link to="/Favourites" className='text-black no-underline sm: hidden'>
-                    <p>Favourites</p>
+                    Favourites
                 </Link>
                 <Link to="/Create" className='text-black no-underline'>
-                    <p>Create Recipe</p> 
+                    Create Recipe 
                 </Link>
                 <Link to="/MyRecipes" className='text-black no-underline'> 
-                    <p>My Recipes</p>
+                    My Recipes
                 </Link>
             </nav>
         </section>
         <section>
         <Link to="/Favourites" className='' >
-            <Button ButtonText='Favourites Recipes' ButtonStyle='bg-black px-3 py-2 rounded text-white' />
+            <Button ButtonText='Favourites Recipes' ButtonStyle='bg-lightOrange px-3 py-1 rounded text-white' />
         </Link>
         </section>
     </div>
