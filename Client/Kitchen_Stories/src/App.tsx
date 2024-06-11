@@ -1,13 +1,14 @@
 import './App.css';
+import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Header from './Components/Header/Header';
 import Home from './Pages/Home/Home';
-import Explore from './Pages/Explore/Explore';
-import Categories from './Pages/Categories/Categories';
-import Nationality from './Pages/Nationality/Nationality';
-import Create from './Pages/Create/Create';
-import MyRecipes from './Pages/MyRecipes/MyRecipes';
-import Instructions from './Pages/Instructions/Instructions';
+const ExplorePage = React.lazy(() => import('./Pages/Explore/Explore'))
+const CategoriesPage = React.lazy(() => import('./Pages/Categories/Categories'))
+const NationalityPage = React.lazy(() => import('./Pages/Nationality/Nationality'))
+const CreatePage = React.lazy(() => import('./Pages/Create/Create'))
+const MyRecipesPage = React.lazy(() => import('./Pages/MyRecipes/MyRecipes'))
+const InstructionsPage = React.lazy(() => import('./Pages/Instructions/Instructions'))
 
 function App() {
 
@@ -16,15 +17,16 @@ function App() {
       <Header />
       <Routes>
         <Route path='/' element={ <Home /> } />
-        <Route path='/Explore' element={ <Explore /> } />
-        <Route path='/Categories' element={ <Categories /> } />
-        <Route path='/Nationality' element={ <Nationality /> } />
-        <Route path='/Create' element={ <Create /> } />
-        <Route path='/MyRecipes' element={ <MyRecipes /> } />
-        <Route path=':MealId' element={<Instructions />} />
+        <Route path='/Explore' element={ <React.Suspense><ExplorePage /> </React.Suspense> } />
+        <Route path='/Categories' element={ <React.Suspense><CategoriesPage /> </React.Suspense> } />
+        <Route path='/Nationality' element={ <React.Suspense><NationalityPage /> </React.Suspense> } />
+        <Route path='/Create' element={ <React.Suspense><CreatePage /> </React.Suspense> }/>
+        <Route path='/MyRecipes' element={ <React.Suspense><MyRecipesPage /> </React.Suspense> } />
+        <Route path=':MealId' element={ <React.Suspense><InstructionsPage /> </React.Suspense> } />
       </Routes>
     </div>
   )
 }
 
 export default App
+
