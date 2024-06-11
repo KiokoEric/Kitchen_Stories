@@ -1,4 +1,3 @@
-import '../Categories/Categories.css';
 import React, { ChangeEvent, useState } from 'react';
 import { ImSpoonKnife } from "react-icons/im";
 import { IoSearchSharp } from "react-icons/io5";

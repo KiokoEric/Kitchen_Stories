@@ -1,4 +1,3 @@
-import '../Home/Home.css';
 import { Link } from 'react-router-dom';
 import React, { ChangeEvent, useState } from 'react';
 import Popular from '../Popular/Popular';

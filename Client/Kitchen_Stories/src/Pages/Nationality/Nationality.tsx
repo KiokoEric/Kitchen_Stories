@@ -1,4 +1,3 @@
-import '../Nationality/Nationality.css';
 import React, { ChangeEvent, useState } from 'react';
 import { GiWorld } from "react-icons/gi";
 import { IoSearchSharp } from "react-icons/io5";
@@ -9,7 +8,7 @@ const Nationality: React.FC = () => {
 
     const [Search, setSearch] = useState("")
     const [SearchError, setSearchError] = useState("")
-    const [Nationalities, setNationalities] = useState()
+    const [Nationalities, setNationalities] = useState([])
 
     const handleSearch = (e: ChangeEvent<HTMLSelectElement>) => {
         setSearch(e.target.value)

@@ -7,7 +7,7 @@ import Categories from './Pages/Categories/Categories';
 import Nationality from './Pages/Nationality/Nationality';
 import Create from './Pages/Create/Create';
 import MyRecipes from './Pages/MyRecipes/MyRecipes';
-
+import Instructions from './Pages/Instructions/Instructions';
 
 function App() {
 
@@ -21,6 +21,7 @@ function App() {
         <Route path='/Nationality' element={ <Nationality /> } />
         <Route path='/Create' element={ <Create /> } />
         <Route path='/MyRecipes' element={ <MyRecipes /> } />
+        <Route path=':MealId' element={<Instructions />} />
       </Routes>
     </div>
   )
