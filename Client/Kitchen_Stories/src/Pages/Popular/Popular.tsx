@@ -1,4 +1,3 @@
-import '../Popular/Popular.css'
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Details from '../../Components/Common/Details/Details';
@@ -23,15 +22,15 @@ return (
     Popular.map((Item: any) => {
         return(
             <div key={Item.idMeal} >
-                <figure className='flex gap-8 justify-center' >
+                <figure className='flex gap-10 justify-center px-5'>
                     <Link className='Link' to={`/${Item.idMeal}`}> 
-                        <img src={Item.strMealThumb} alt="" className='cursor-pointer rounded' />
+                        <img src={Item.strMealThumb} alt="" className='cursor-pointer rounded' id='RecipeImage' />
                     </Link>
-                    <figcaption className='flex flex-col gap-5' >
+                    <figcaption className='flex flex-col gap-5'>
                         <h2 className='font-bold text-3xl'>{Item.strMeal} <span>({Item.strArea})</span> </h2>
                         <h4 className='font-bold text-2xl'>Ingredients</h4>
                         <div className='flex flex-row gap-14'>
-                            <Details
+                            <Details DetailsCSS='list-disc list-inside'
                                 ifIngredient1 = {Item.strIngredient1}
                                 ifIngredient2 = {Item.strIngredient2}
                                 ifIngredient3 = {Item.strIngredient3}
@@ -48,7 +47,7 @@ return (
                                 Measure4 = {Item.strMeasure4}
                                 Measure5 = {Item.strMeasure5}
                             />
-                            <Details
+                            <Details DetailsCSS='list-disc list-inside'
                                 ifIngredient1 = {Item.strIngredient6}
                                 ifIngredient2 = {Item.strIngredient7}
                                 ifIngredient3 = {Item.strIngredient8}
@@ -65,7 +64,7 @@ return (
                                 Measure4 = {Item.strMeasure9}
                                 Measure5 = {Item.strMeasure10}
                             />
-                            <Details
+                            <Details DetailsCSS='list-disc list-inside'
                                 ifIngredient1 = {Item.strIngredient11}
                                 ifIngredient2 = {Item.strIngredient12}
                                 ifIngredient3 = {Item.strIngredient13}

@@ -1,6 +1,7 @@
 import React from 'react';
 
 interface DetailProps {
+    DetailsCSS: string;
     ifIngredient1: any;
     ifIngredient2: any;
     ifIngredient3: any;
@@ -18,10 +19,10 @@ interface DetailProps {
     Measure5: any;
 }
 
-const Details: React.FC<DetailProps> = ({ ifIngredient1, ifIngredient2, ifIngredient3, ifIngredient4, ifIngredient5, Ingredient1, Ingredient2, Ingredient3, Ingredient4, Ingredient5, Measure1, Measure2, Measure3, Measure4, Measure5 }) => {
+const Details: React.FC<DetailProps> = ({ DetailsCSS, ifIngredient1, ifIngredient2, ifIngredient3, ifIngredient4, ifIngredient5, Ingredient1, Ingredient2, Ingredient3, Ingredient4, Ingredient5, Measure1, Measure2, Measure3, Measure4, Measure5 }) => {
 return (
     <div>
-        <ul className='list-disc' >
+        <ul className={DetailsCSS}>
             {ifIngredient1 ? (<li>{Ingredient1} : {Measure1}</li>) : null}
             {ifIngredient2 ? (<li>{Ingredient2} : {Measure2}</li>) : null}
             {ifIngredient3 ? (<li>{Ingredient3} : {Measure3}</li>) : null}

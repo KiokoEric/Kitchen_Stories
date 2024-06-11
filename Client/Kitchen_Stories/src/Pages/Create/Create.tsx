@@ -1,4 +1,3 @@
-import '../Create/Create.css'
 import React, { ChangeEvent, useState } from 'react';
 import Heading from '../../Components/Common/Heading/Heading';
 import Button from '../../Components/Common/Button/Button';

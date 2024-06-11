@@ -5,7 +5,7 @@ import Button from '../Common/Button/Button';
 
 const Header: React.FC = () => {
 return (
-    <div className='flex items-center justify-between px-2'>
+    <div className='flex items-center justify-between px-2 shadow-lg sticky'>
         <section>
             <Link to="/Home" className='flex gap-4 items-center justify-center text-black no-underline'>
                 <img src={Logo} alt="" width="50px" />
