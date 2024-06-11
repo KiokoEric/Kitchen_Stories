@@ -63,8 +63,8 @@ return (
                     <input type="text" placeholder='Enter Image Url...' value={Image} onChange={handleImage} className='border-black border-b outline-none px-2 py-1 text-black w-96' required />
                 </div>
                 <div className='mt-10' >
-                    <h4 className='Error'>{Error}</h4>
-                    <h4 className='Success' >{Success}</h4>
+                    <h4 className='font-bold text-red-700'>{Error}</h4>
+                    <h4 className='font-bold text-green-700'>{Success}</h4>
                     <Button
                         ButtonText='Add Recipe'
                         ButtonStyle='bg-black cursor-pointer text-center text-white px-3 py-1 rounded'

@@ -8,7 +8,7 @@ const Nationality: React.FC = () => {
 
     const [Search, setSearch] = useState("")
     const [SearchError, setSearchError] = useState("")
-    const [Nationalities, setNationalities] = useState()
+    const [Nationalities, setNationalities] = useState([])
 
     const handleSearch = (e: ChangeEvent<HTMLSelectElement>) => {
         setSearch(e.target.value)
