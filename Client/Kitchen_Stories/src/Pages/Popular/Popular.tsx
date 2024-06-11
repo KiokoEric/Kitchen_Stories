@@ -29,14 +29,13 @@ return (
                     <figcaption className='flex flex-col gap-5' >
                         <h2 className='font-bold text-3xl'>{Item.strMeal} <span>({Item.strArea})</span> </h2>
                         <h4 className='font-bold text-2xl'>Ingredients</h4>
-                        <div className='flex flex-row gap-14' >
+                        <div className='flex flex-row gap-14'>
                             <ul className='list-disc' >
                                 {Item.strIngredient1 ? (<li>{Item.strIngredient1} : {Item.strMeasure1}</li>) : null}
                                 {Item.strIngredient2 ? (<li>{Item.strIngredient2} : {Item.strMeasure2}</li>) : null}
                                 {Item.strIngredient3 ? (<li>{Item.strIngredient3} : {Item.strMeasure3}</li>) : null}
                                 {Item.strIngredient4 ? (<li>{Item.strIngredient4} : {Item.strMeasure4}</li>) : null}
                                 {Item.strIngredient5 ? (<li>{Item.strIngredient5} : {Item.strMeasure5}</li>) : null}
-                                
                             </ul>
                             <ul className='list-disc' >
                                 {Item.strIngredient6 ? (<li>{Item.strIngredient6} : {Item.strMeasure6}</li>) : null}
