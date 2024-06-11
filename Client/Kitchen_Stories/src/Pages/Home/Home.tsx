@@ -1,6 +1,7 @@
 import '../Home/Home.css';
 import { Link } from 'react-router-dom';
 import React, { ChangeEvent, useState } from 'react';
+import Popular from '../Popular/Popular';
 import Output from '../../Components/Common/Output/Output';
 import SearchPage from '../../Components/Common/Search/SearchPage';
 
@@ -68,6 +69,9 @@ return (
             ErrorStyle='text-red-700'
             Results={Results}
         />
+        <section>
+            <Popular />
+        </section>
         <section className='grid grid-cols-3 gap-5 px-10'>
             {
             (!Recipes) ? <h2 className='font-bold text-red-700 text-center text-3xl'>No Results Found</h2> :
