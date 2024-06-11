@@ -1,4 +1,3 @@
-import '../Nationality/Nationality.css';
 import React, { ChangeEvent, useState } from 'react';
 import { GiWorld } from "react-icons/gi";
 import { IoSearchSharp } from "react-icons/io5";

@@ -1,4 +1,3 @@
-import '../Explore/Explore.css';
 import React, { useState } from 'react';
 import Heading from '../../Components/Common/Heading/Heading';
 import Output from '../../Components/Common/Output/Output';
