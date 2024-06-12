@@ -5,10 +5,10 @@ interface HeadingProps {
     ContainerStyle: string;
     Heading: string;
     HeadingStyle: string;
-    FirstStyle: string;
-    FirstText: string;
-    SecondStyle: string;
-    SecondText: string;
+    FirstStyle?: string;
+    FirstText?: string;
+    SecondStyle?: string;
+    SecondText?: string;
 }
 
 const Heading: React.FC<HeadingProps> = ({ idName, ContainerStyle, Heading, HeadingStyle, FirstStyle, FirstText, SecondStyle, SecondText }) => {
