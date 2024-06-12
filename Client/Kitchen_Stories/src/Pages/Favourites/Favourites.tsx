@@ -2,9 +2,14 @@ import Axios from "axios";
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useCookies } from "react-cookie";
+import { useGetUserID } from "../../Components/Hooks/useGetUserID";
 import CookingGif from "../../assets/Cook.gif";
+import Output from "../../Components/Common/Output/Output";
+
 
 const Favourites: React.FC = () => {
+
+    const UserID = useGetUserID();
 
     const [Cookie, setCookie] = useCookies(["auth_token"]);
     const [isLoading, setIsLoading] = useState(true)
@@ -118,31 +123,31 @@ const Favourites: React.FC = () => {
             }
         }
 
-        // if (UserID) {
-        //     fetchRecipeID()
-        // } 
+        if (UserID) {
+            fetchRecipeID()
+        } 
 
-        // if (UserID) {
-        //     fetchRecipeID2()
-        // } 
+        if (UserID) {
+            fetchRecipeID2()
+        } 
 
-        // if (UserID) {
-        //     fetchRecipeID3()
-        // } 
+        if (UserID) {
+            fetchRecipeID3()
+        } 
 
-        // if (UserID) {
-        //     fetchRecipeID4()
-        // } 
+        if (UserID) {
+            fetchRecipeID4()
+        } 
 
-        // if (UserID) {
-        //     fetchRecipeID5()
-        // } 
+        if (UserID) {
+            fetchRecipeID5()
+        } 
 
-        // if (UserID) {
-        //     fetchRecipeID6()
-        // } 
+        if (UserID) {
+            fetchRecipeID6()
+        } 
 
-    })
+    }, [UserID])
 
     useEffect(()=> { 
 
@@ -269,48 +274,48 @@ const Favourites: React.FC = () => {
 return (
     <div>
         <p className='Maximum'>Maximum number of favourites displayed is 6</p>
-        <div className='Favourite' >
+        <div className='grid grid-cols-3 gap-5 px-10'>
         {isLoading ? (
-            <div className='Cooking' >
-                <img src={CookingGif} alt="Loading..." className='Loading' />
+            <div  className='flex flex-auto items-center justify-center gap-5 px-10'>
+                <img src={CookingGif} alt="Loading..." className="w-max" />
             </div>
         ) : (
             (Favourites.length > 0) ?  
-            Favourites.map((Item) => { 
+            Favourites.map((Item: any) => { 
                 return (
                 <div key={Item.idMeal} > 
-                    <Link className='Link' to={`/${Item.idMeal}`} key={Item.idMeal} >
-                        <figure>
-                            <img src={Item.strMealThumb} alt="" />
-                            <figcaption>
-                                <h2>{Item.strMeal}</h2>
-                            </figcaption>
-                        </figure>
+                    <Link className='text-black no-underline' to={`/${Item.idMeal}`} key={Item.idMeal} >
+                        <Output
+                            figureStyle='flex flex-col gap-5 mb-5'
+                            image={Item.strMealThumb}
+                            imageStyle='rounded w-11/12'
+                            TitleStyle='capitalize font-bold text-center text-3xl'
+                            Title={Item.strMeal}
+                        />
                     </Link>
-                    <button onClick={() => RemoveFromFavourites(FavouritesID)} >Remove from Favourites</button>
                 </div>
         )
         }) : <h2 className='Failure'>No Recipes Found.</h2> 
         )}
         {
         isLoading ? (
-            <div className='Cooking' >
-                <img src={CookingGif} alt="Loading..." className='Loading' />
+            <div  className='flex flex-auto items-center justify-center gap-5 px-10'>
+                <img src={CookingGif} alt="Loading..." className="w-max" />
             </div>
         ) : (
         (Favourites.length > 0) ?  
-        Favourites2.map((Item) => { 
+        Favourites2.map((Item: any) => { 
             return (
             <div key={Item.idMeal} > 
-                <Link className='Link' to={`/${Item.idMeal}`} key={Item.idMeal} >
-                    <figure>
-                        <img src={Item.strMealThumb} alt="" />
-                        <figcaption>
-                            <h2>{Item.strMeal}</h2>
-                        </figcaption>
-                    </figure>
+                <Link className='text-black no-underline' to={`/${Item.idMeal}`} key={Item.idMeal} >
+                    <Output
+                        figureStyle='flex flex-col gap-5 mb-5'
+                        image={Item.strMealThumb}
+                        imageStyle='rounded w-11/12'
+                        TitleStyle='capitalize font-bold text-center text-3xl'
+                        Title={Item.strMeal}
+                    />
                 </Link>
-                <button onClick={() => RemoveFromFavourites(FavouritesID2)} >Remove from Favourites</button>
             </div>
             )
         
@@ -319,92 +324,92 @@ return (
         )}
         {
         isLoading ? (
-            <div className='Cooking' >
-                <img src={CookingGif} alt="Loading..." className='Loading' />
+            <div  className='flex flex-auto items-center justify-center gap-5 px-10'>
+                <img src={CookingGif} alt="Loading..." className="w-max" />
             </div>
         ) : (
         (Favourites.length > 0) ?  
-        Favourites3.map((Item) => { 
+        Favourites3.map((Item: any) => { 
             return (
             <div key={Item.idMeal} > 
-                <Link className='Link' to={`/${Item.idMeal}`} key={Item.idMeal} >
-                    <figure>
-                        <img src={Item.strMealThumb} alt="" />
-                        <figcaption>
-                            <h2>{Item.strMeal}</h2>
-                        </figcaption>
-                    </figure>
+                <Link className='text-black no-underline' to={`/${Item.idMeal}`} key={Item.idMeal} >
+                    <Output
+                        figureStyle='flex flex-col gap-5 mb-5'
+                        image={Item.strMealThumb}
+                        imageStyle='rounded w-11/12'
+                        TitleStyle='capitalize font-bold text-center text-3xl'
+                        Title={Item.strMeal}
+                    />
                 </Link>
-                <button onClick={() => RemoveFromFavourites(FavouritesID3)} >Remove from Favourites</button>
             </div>
             )
         }) : ""
         )}
         {
         isLoading ? (
-            <div className='Cooking' >
-                <img src={CookingGif} alt="Loading..." className='Loading' />
+            <div  className='flex flex-auto items-center justify-center gap-5 px-10'>
+                <img src={CookingGif} alt="Loading..." className="w-max" />
             </div>
         ) : (
         (Favourites.length > 0) ?  
-        Favourites4.map((Item) => { 
+        Favourites4.map((Item: any) => { 
             return (
             <div key={Item.idMeal} > 
-                <Link className='Link' to={`/${Item.idMeal}`} key={Item.idMeal} >
-                    <figure>
-                        <img src={Item.strMealThumb} alt="" />
-                        <figcaption>
-                            <h2>{Item.strMeal}</h2>
-                        </figcaption>
-                    </figure>
+                <Link className='text-black no-underline' to={`/${Item.idMeal}`} key={Item.idMeal} >
+                    <Output
+                        figureStyle='flex flex-col gap-5 mb-5'
+                        image={Item.strMealThumb}
+                        imageStyle='rounded w-11/12'
+                        TitleStyle='capitalize font-bold text-center text-3xl'
+                        Title={Item.strMeal}
+                    />
                 </Link>
-                <button onClick={() => RemoveFromFavourites(FavouritesID4)} >Remove from Favourites</button>
             </div>
             )
         }) : ""
         )}
         {
         isLoading ? (
-            <div className='Cooking' >
-                <img src={CookingGif} alt="Loading..." className='Loading' />
+            <div  className='flex flex-auto items-center justify-center gap-5 px-10'>
+                <img src={CookingGif} alt="Loading..." className="w-max" />
             </div>
         ) : (
         (Favourites.length > 0) ?  
-        Favourites5.map((Item) => { 
+        Favourites5.map((Item: any) => { 
             return (
             <div key={Item.idMeal} > 
-                <Link className='Link' to={`/${Item.idMeal}`} key={Item.idMeal} >
-                    <figure>
-                        <img src={Item.strMealThumb} alt="" />
-                        <figcaption>
-                            <h2>{Item.strMeal}</h2>
-                        </figcaption>
-                    </figure>
+                <Link className='text-black no-underline' to={`/${Item.idMeal}`} key={Item.idMeal} >
+                    <Output
+                        figureStyle='flex flex-col gap-5 mb-5'
+                        image={Item.strMealThumb}
+                        imageStyle='rounded w-11/12'
+                        TitleStyle='capitalize font-bold text-center text-3xl'
+                        Title={Item.strMeal}
+                    />
                 </Link>
-                <button onClick={() => RemoveFromFavourites(FavouritesID5)} >Remove from Favourites</button>
             </div>
             )
         }) : ""
         )}
         {
         isLoading ? (
-            <div className='Cooking' >
-                <img src={CookingGif} alt="Loading..." className='Loading' />
+            <div  className='flex flex-auto items-center justify-center gap-5 px-10'>
+                <img src={CookingGif} alt="Loading..." className="w-max" />
             </div>
         ) : (
         (Favourites.length > 0) ?   
-        Favourites6.map((Item) => { 
+        Favourites6.map((Item: any) => { 
             return (
             <div key={Item.idMeal} > 
-                <Link className='Link' to={`/${Item.idMeal}`} key={Item.idMeal} >
-                    <figure>
-                        <img src={Item.strMealThumb} alt="" />
-                        <figcaption>
-                            <h2>{Item.strMeal}</h2>
-                        </figcaption>
-                    </figure>
+                <Link className='text-black no-underline' to={`/${Item.idMeal}`} key={Item.idMeal} >
+                    <Output
+                        figureStyle='flex flex-col gap-5 mb-5'
+                        image={Item.strMealThumb}
+                        imageStyle='rounded w-11/12'
+                        TitleStyle='capitalize font-bold text-center text-3xl'
+                        Title={Item.strMeal}
+                    />
                 </Link>
-                <button onClick={() => RemoveFromFavourites(FavouritesID6)} >Remove from Favourites</button>
             </div>
             )
         }) : ""
