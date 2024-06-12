@@ -11,4 +11,4 @@ return (
 )
 }
 
-export default Button
+export default React.memo(Button);

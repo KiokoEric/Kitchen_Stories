@@ -19,4 +19,4 @@ return (
 )
 }
 
-export default Output
+export default React.memo(Output)

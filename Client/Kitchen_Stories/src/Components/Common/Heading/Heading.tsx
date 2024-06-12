@@ -22,4 +22,4 @@ return (
 )
 }
 
-export default Heading
+export default React.memo(Heading);
