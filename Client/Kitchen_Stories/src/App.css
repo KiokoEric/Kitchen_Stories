@@ -77,6 +77,14 @@ body {
   height: 260px;
   width: 100%;
 }
+#Registration {
+  background-image: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url(./assets/Register_HomePage.jpg);
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 260px;
+  width: 100%;
+}
 #Login {
   background-image: url(./assets/Login.jpg);
   background-position: center;
