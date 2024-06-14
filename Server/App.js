@@ -10,7 +10,7 @@ dotenv.config();
 // Middleware
 
 app.use(cors({
-    origin: ["http://localhost:3000"],
+    origin: ["http://localhost:5173"],
     methods: ["POST", "GET", "PUT" ,"DELETE"],  
     credentials: true
 }))
@@ -28,11 +28,11 @@ mongoose.connect(dbUrl)
 
 const UserRoute = require("./Routes/UserRoute");
 const RecipeRoute = require("./Routes/RecipeRoute"); 
-const FavouriteRoute = require("./Routes/FavouriteRoute"); 
+const FavouriteRoute = require("./Routes/FavouritesRoute"); 
 
 
 app.use("/Users", UserRoute);
 app.use("/Recipe", RecipeRoute);
-app.use("/Favourites", FavouriteRoute);
+app.use("/Favourites", FavouriteRoute);  
 
 app.listen(4000)
