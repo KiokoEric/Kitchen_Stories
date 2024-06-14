@@ -54,27 +54,27 @@ return (
                 <div className='flex flex-col gap-2'>
                     <label className='font-bold' htmlFor="">Name</label> 
                     <textarea placeholder="Enter Name..." {...register('Name', { required: 'Name is required' })} className='border-black border-b h-8 outline-none truncate px-1 py-2 text-black w-96' required />
-                    {errors.Name && <p className="text-red-700">{errors.Name.message}</p>}
+                    {errors.Name && <p className="text-center text-red-700">{errors.Name.message}</p>}
                 </div>
                 <div className='flex flex-col gap-2'>
                     <label className='font-bold' htmlFor="">Description</label>
                     <textarea className="border-black border-b h-20 outline-none px-1 py-2 w-96"  placeholder="Enter Description..." {...register('Description', { required: 'Description is required' })} required/>
-                    {errors.Description && <p className="text-red-700">{errors.Description.message}</p>}
+                    {errors.Description && <p className="text-center text-red-700">{errors.Description.message}</p>}
                 </div>
                 <div className='flex flex-col gap-2'>
                     <label className='font-bold' htmlFor="">Ingredients</label>
                     <textarea placeholder='Enter Ingredients...' className="border-black border-b h-20 outline-none px-1 py-2 w-96" {...register('Ingredients', { required: 'Ingredients is required' })} required ></textarea>
-                    {errors.Ingredients && <p className="text-red-700">{errors.Ingredients.message}</p>}
+                    {errors.Ingredients && <p className="text-center text-red-700">{errors.Ingredients.message}</p>}
                 </div>
                 <div className='flex flex-col gap-2'>
                     <label className='font-bold' htmlFor="">Instructions</label>
                     <textarea placeholder='Enter Instructions...' className="border-black border-b h-20 px-1 outline-none py-2 w-96" {...register('Instructions', { required: 'Instructions is required' })} required ></textarea>
-                    {errors.Instructions && <p className="text-red-700">{errors.Instructions.message}</p>}
+                    {errors.Instructions && <p className="text-center text-red-700">{errors.Instructions.message}</p>}
                 </div>
                 <div className='flex flex-col gap-2'>
                     <label className='font-bold' htmlFor="">Image</label>
                     <textarea placeholder='Enter Image Url...' {...register('Image', { required: 'Image is required' })} className='border-black border-b h-8 outline-none px-2 py-1 truncate text-black w-96' required />
-                    {errors.Image && <p className="text-red-700">{errors.Image.message}</p>}
+                    {errors.Image && <p className="text-center text-red-700">{errors.Image.message}</p>}
                 </div>
                 <div className='mt-10' >
                     <h4 className='font-bold text-center text-green-700'>{Success}</h4>
