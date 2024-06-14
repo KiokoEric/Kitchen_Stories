@@ -1,36 +1,45 @@
-import React, { ChangeEvent, useState } from 'react';
+import * as z from 'zod';
+import Axios from "axios";
+import React, { useState } from 'react';
+import { useCookies } from "react-cookie";
+import { useForm, SubmitHandler } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
 import Heading from '../../Components/Common/Heading/Heading';
 import Button from '../../Components/Common/Button/Button';
 
-const Create: React.FC = () => {
+interface FormValues {
+    Name: string;
+    Description: string;
+    Ingredients: string;
+    Instructions: string;
+    Image: string;
+};
 
-    const [Name, setName] = useState('')
-    const [Description, setDescription] = useState('')
-    const [Ingredients, setIngredients] = useState('')
-    const [Instructions, setInstructions] = useState('')
-    const [Image, setImage] = useState('')
-    const [Error, setError] = useState('')
+const Create: React.FC<FormValues> = () => {
+
+    const RecipeSchema = z.object({
+        Name: z.string().min(1, 'Name is required'),
+        Description: z.string().min(1, 'Description is required'),
+        Ingredients: z.string().min(1, 'Ingredients are required'),
+        Instructions: z.string().min(1, 'Instructions are required'),
+        Image: z.string().min(1, 'Image link is required'),
+    });
+
+    const [Cookie,_] = useCookies(["auth_token"]);
     const [Success, setSuccess] = useState('')
 
-    const handleName = (e :ChangeEvent<HTMLInputElement>) => {
-        setName(e.target.value)
-    }
+    const { register, handleSubmit, formState: { errors } } = useForm<FormValues>({
+        resolver: zodResolver(RecipeSchema),
+    });
 
-    const handleDescription = (e: ChangeEvent<HTMLTextAreaElement>) => {
-        setDescription(e.target.value)
-    }
 
-    const handleIngredients = (e: ChangeEvent<HTMLTextAreaElement>) => {
-        setIngredients(e.target.value)
-    }
+    const AddRecipe: SubmitHandler<FormValues> =  data => {
+        Axios.post("http://localhost:4000/Recipe/AddRecipe", data , {
+            headers: { authorization: Cookie.auth_token },
+        }) 
+        setSuccess('Recipe has been successfully added.')
+    };
 
-    const handleInstructions = (e: ChangeEvent<HTMLTextAreaElement>) => {
-        setInstructions(e.target.value)
-    }
-
-    const handleImage = (e: ChangeEvent<HTMLInputElement>) => {
-        setImage(e.target.value)
-    }
 
 return (
     <div>
@@ -41,33 +50,38 @@ return (
             HeadingStyle='font-bold text-4xl'
         />
         <section className='flex flex-col items-center mb-5'>
-            <form method="post" encType="multipart/form-data" className='flex flex-col gap-5' >
+            <form method="post" onSubmit={handleSubmit(AddRecipe)} encType="multipart/form-data" className='flex flex-col gap-5' >
                 <div className='flex flex-col gap-2'>
-                    <label htmlFor="">Name</label> 
-                    <input type="text" placeholder="Enter Name..." value={Name} onChange={handleName} className='border-black border-b outline-none px-1 py-2 text-black w-96' required />
+                    <label className='font-bold' htmlFor="">Name</label> 
+                    <textarea placeholder="Enter Name..." {...register('Name', { required: 'Name is required' })} className='border-black border-b h-8 outline-none truncate px-1 py-2 text-black w-96' required />
+                    {errors.Name && <p className="text-red-700">{errors.Name.message}</p>}
                 </div>
                 <div className='flex flex-col gap-2'>
-                    <label htmlFor="">Description</label>
-                    <textarea className="border-black border-b h-20 outline-none px-1 py-2 w-96"  placeholder="Enter Description..." value={Description} onChange={handleDescription} required></textarea>
+                    <label className='font-bold' htmlFor="">Description</label>
+                    <textarea className="border-black border-b h-20 outline-none px-1 py-2 w-96"  placeholder="Enter Description..." {...register('Description', { required: 'Description is required' })} required/>
+                    {errors.Description && <p className="text-red-700">{errors.Description.message}</p>}
                 </div>
                 <div className='flex flex-col gap-2'>
-                    <label htmlFor="">Ingredients</label>
-                    <textarea placeholder='Enter Ingredients...' className="border-black border-b h-20 outline-none px-1 py-2 w-96" value={Ingredients} onChange={handleIngredients} required ></textarea>
+                    <label className='font-bold' htmlFor="">Ingredients</label>
+                    <textarea placeholder='Enter Ingredients...' className="border-black border-b h-20 outline-none px-1 py-2 w-96" {...register('Ingredients', { required: 'Ingredients is required' })} required ></textarea>
+                    {errors.Ingredients && <p className="text-red-700">{errors.Ingredients.message}</p>}
                 </div>
                 <div className='flex flex-col gap-2'>
-                    <label htmlFor="">Instructions</label>
-                    <textarea placeholder='Enter Instructions...' className="border-black border-b h-20 px-1 outline-none py-2 w-96" value={Instructions} onChange={handleInstructions} required ></textarea>
+                    <label className='font-bold' htmlFor="">Instructions</label>
+                    <textarea placeholder='Enter Instructions...' className="border-black border-b h-20 px-1 outline-none py-2 w-96" {...register('Instructions', { required: 'Instructions is required' })} required ></textarea>
+                    {errors.Instructions && <p className="text-red-700">{errors.Instructions.message}</p>}
                 </div>
                 <div className='flex flex-col gap-2'>
-                    <label htmlFor="">Image</label>
-                    <input type="text" placeholder='Enter Image Url...' value={Image} onChange={handleImage} className='border-black border-b outline-none px-2 py-1 text-black w-96' required />
+                    <label className='font-bold' htmlFor="">Image</label>
+                    <textarea placeholder='Enter Image Url...' {...register('Image', { required: 'Image is required' })} className='border-black border-b h-8 outline-none px-2 py-1 truncate text-black w-96' required />
+                    {errors.Image && <p className="text-red-700">{errors.Image.message}</p>}
                 </div>
                 <div className='mt-10' >
-                    <h4 className='font-bold text-red-700'>{Error}</h4>
-                    <h4 className='font-bold text-green-700'>{Success}</h4>
+                    <h4 className='font-bold text-center text-green-700'>{Success}</h4>
                     <Button
                         ButtonText='Add Recipe'
                         ButtonStyle='bg-black cursor-pointer text-center text-white px-3 py-1 rounded'
+                        onClick={handleSubmit(AddRecipe)}
                     />
                 </div>
             </form>
