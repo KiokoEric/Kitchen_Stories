@@ -50,25 +50,17 @@ return (
             Heading='Login'
             HeadingStyle='font-bold text-5xl'
         />
-        <form method="post" onSubmit={handleSubmit(onLogin)} encType="multipart/form-data" className='flex flex-col items-center gap-5'>
-            <Input
-                ContainerStyle = 'flex flex-col gap-1'
-                Label = 'Email'
-                LabelStyle = 'font-bold'
-                Placeholder = "Enter Email..."
-                inputStyle = 'border-black border-b h-8 outline-none truncate px-1 py-2 text-black w-96'
-                {...register('Email', { required: 'Email is required' })}
-            />
-            {errors.Email && <p className="mb-1 mt-1 text-center text-red-700">{errors.Email.message}</p>}
-            <Input
-                ContainerStyle = 'flex flex-col gap-1'
-                Label = 'Password'
-                LabelStyle = 'font-bold'
-                Placeholder = "Enter Password..."
-                inputStyle = 'border-black border-b h-8 outline-none truncate px-1 py-2 text-black w-96'
-                {...register('Password', { required: 'Password is required' })}
-            />
-            {errors.Password && <p className="mt-1 text-center text-red-700">{errors.Password.message}</p>}
+        <form method="post" onSubmit={handleSubmit(onLogin)} encType="multipart/form-data" className='flex flex-col items-center gap-2'>
+            <div className='flex flex-col gap-2'>
+                <label className='font-bold' htmlFor="Email">Email</label> 
+                <input placeholder="Enter Email..." {...register('Email', { required: 'Email is required' })} className='border-black border-b h-8 outline-none truncate px-1 py-2 text-black w-96' required />
+                {errors.Email && <p className="text-center text-red-700">{errors.Email.message}</p>}
+            </div>
+            <div className='flex flex-col gap-2'>
+                <label className='font-bold' htmlFor="Password">Password</label> 
+                <input placeholder="Enter Password..." {...register('Password', { required: 'Password is required' })} className='border-black border-b h-8 outline-none truncate px-1 py-2 text-black w-96' required />
+                {errors.Password && <p className="text-center text-red-700">{errors.Password.message}</p>}
+            </div>
             <Button
                 ButtonText='Login'
                 ButtonStyle='bg-black cursor-pointer mt-1 text-center text-white px-3 py-1 rounded w-40'
