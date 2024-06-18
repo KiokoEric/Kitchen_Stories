@@ -55,8 +55,8 @@ return (
                     Title={Recipe.Name}
                 />
                     <div className="flex gap-3 justify-end">
-                        <MdEditSquare size="1rem" className="bg-yellow-700" color="black" />
-                        <MdDelete size="1rem" className="bg-yellow-700" color="black" />
+                        <MdEditSquare size="1rem" className="bg-Orange" color="black" />
+                        <MdDelete size="1rem" className="bg-Orange" color="black" />
                     </div>
                 </Link>
             </div>
@@ -65,7 +65,7 @@ return (
             )
             }
         </section>
-    </div>
+    </div> 
 )
 }   
 
