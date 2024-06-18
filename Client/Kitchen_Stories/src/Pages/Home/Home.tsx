@@ -53,7 +53,7 @@ return (
             idName= 'Home'
             ContainerStyle= 'flex flex-col items-center justify-center gap-5 mb-10 text-white'
             Heading= 'Your desired dish ?'
-            HeadingStyle= 'font-bold text-4xl'
+            HeadingStyle= 'font-bold text-5xl'
             formStyle= 'bg-white flex flex-row items-center justify-between gap-1 px-1 py-1 rounded w-2/5'
             Placeholder= 'Search Recipe...'
             inputStyle= 'outline-none px-2 py-1 text-black w-11/12'

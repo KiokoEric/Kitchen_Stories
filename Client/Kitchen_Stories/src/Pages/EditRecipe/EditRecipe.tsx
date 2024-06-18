@@ -15,7 +15,7 @@ interface FormValues {
     Image: string;
 };
 
-const Create: React.FC = () => {
+const EditRecipe:React.FC = () => {
 
     const RecipeSchema = z.object({
         Name: z.string().min(1, 'Name is required'),
@@ -33,11 +33,11 @@ const Create: React.FC = () => {
     });
 
 
-    const AddRecipe: SubmitHandler<FormValues> =  data => {
-        Axios.post("http://localhost:4000/Recipe/AddRecipe", data , {
+    const Edit: SubmitHandler<FormValues> =  data => {
+        Axios.post("http://localhost:4000/Recipe/EditRecipe", data , {
             headers: { authorization: Cookie.auth_token },
         }) 
-        setSuccess('Recipe has been successfully added.')
+        setSuccess('Recipe has been successfully edited.')
     };
 
 
@@ -46,11 +46,11 @@ return (
         <Heading 
             idName='Create'
             ContainerStyle='flex flex-col items-center justify-center gap-5 mb-10 text-center text-white'
-            Heading='Create Recipe'
+            Heading='Edit Recipe'
             HeadingStyle='font-bold text-5xl'
         />
         <section className='flex flex-col items-center mb-5'>
-            <form method="post" onSubmit={handleSubmit(AddRecipe)} encType="multipart/form-data" className='flex flex-col gap-2'>
+            <form method="post" onSubmit={handleSubmit(Edit)} encType="multipart/form-data" className='flex flex-col gap-4'>
                 <div className='flex flex-col gap-2'>
                     <label className='font-bold' htmlFor="">Name</label> 
                     <textarea placeholder="Enter Name..." {...register('Name', { required: 'Name is required' })} className='border-black border-b h-8 outline-none truncate px-1 py-1 text-black w-96' required />
@@ -79,9 +79,8 @@ return (
                 <div className='mt-10' >
                     <h4 className='font-bold text-center text-green-700'>{Success}</h4>
                     <Button
-                        ButtonText='Add Recipe'
+                        ButtonText='Edit Recipe'
                         ButtonStyle='bg-black cursor-pointer text-center text-white px-3 py-1 rounded'
-                        onClick={handleSubmit(AddRecipe)}
                     />
                 </div>
             </form>
@@ -90,6 +89,4 @@ return (
 )
 }
 
-export default Create
-
-
+export default EditRecipe

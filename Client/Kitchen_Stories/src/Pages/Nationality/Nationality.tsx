@@ -51,7 +51,7 @@ const Nationality: React.FC = () => {
 return (
     <div>
         <section id='Nationality' className='flex flex-col items-center justify-center gap-5 mb-10 text-white' >
-        <h1 className='font-bold text-4xl'>Where To?</h1>
+        <h1 className='font-bold text-5xl'>Where To?</h1>
             <form onSubmit={getNationality} className="bg-white flex flex-row items-center justify-between gap-1 px-1 py-1 rounded w-2/5" >
                 <GiWorld size="1.8rem" color="black" />
                 <select name="" id="Select" className='outline-none px-2 py-1 text-black w-11/12' value={Search} onChange={handleSearch}>
