@@ -52,7 +52,7 @@ const Categories: React.FC = () => {
 return (
     <div>
         <section id='Categories' className='flex flex-col items-center justify-center gap-5 mb-10 text-white'>
-            <h1 className='font-bold text-4xl'>Select a category</h1>
+            <h1 className='font-bold text-5xl'>Select a category</h1>
             <form onSubmit={getCategory} className="bg-white flex flex-row items-center justify-between gap-1 px-1 py-1 rounded w-2/5">
                 <ImSpoonKnife size="1.8rem" color="black" />
                 <select name="" id="Select" className='outline-none px-2 py-1 text-black w-11/12' value={Search} onChange={handleSearch} >

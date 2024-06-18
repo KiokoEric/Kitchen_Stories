@@ -34,7 +34,7 @@ return (
             idName='MyRecipes'
             ContainerStyle='flex flex-col items-center justify-center gap-5 mb-8 text-center text-white'
             Heading='My Recipes'
-            HeadingStyle='font-bold text-4xl'
+            HeadingStyle='font-bold text-5xl'
         />
         <section className='flex flex-auto items-center justify-center gap-5 px-10'>
         {isLoading ? (
