@@ -6,7 +6,6 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Heading from '../../Components/Common/Heading/Heading';
 import Button from '../../Components/Common/Button/Button';
-import Input from '../../Components/Common/UserInput/Input';
 
 interface FormValues {
     Name: string;
@@ -16,7 +15,7 @@ interface FormValues {
     Image: string;
 };
 
-const Create: React.FC<FormValues> = () => {
+const Create: React.FC = () => {
 
     const RecipeSchema = z.object({
         Name: z.string().min(1, 'Name is required'),
@@ -54,7 +53,7 @@ return (
             <form method="post" onSubmit={handleSubmit(AddRecipe)} encType="multipart/form-data" className='flex flex-col gap-2'>
                 <div className='flex flex-col gap-2'>
                     <label className='font-bold' htmlFor="">Name</label> 
-                    <textarea placeholder="Enter Name..." {...register('Name', { required: 'Name is required' })} className='border-black border-b h-8 outline-none truncate px-1 py-2 text-black w-96' required />
+                    <textarea placeholder="Enter Name..." {...register('Name', { required: 'Name is required' })} className='border-black border-b h-8 outline-none truncate px-1 py-1 text-black w-96' required />
                     {errors.Name && <p className="text-center text-red-700">{errors.Name.message}</p>}
                 </div>
                 <div className='flex flex-col gap-2'>

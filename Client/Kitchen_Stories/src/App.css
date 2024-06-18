@@ -93,6 +93,14 @@ body {
   height: 260px;
   width: 100%;
 }
+#Profile {
+  background-image: url(./assets/My_Profile.jpg);
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 260px;
+  width: 100%;
+}
 #RecipeImage {
   height: 300px;
   width: 500px;
