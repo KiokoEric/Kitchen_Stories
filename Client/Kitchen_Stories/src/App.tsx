@@ -12,6 +12,7 @@ const InstructionsPage = React.lazy(() => import('./Pages/Instructions/Instructi
 const RegistrationPage = React.lazy(() => import('./Pages/User/Registration/Registration'))
 const LoginPage = React.lazy(() => import('./Pages/User/Login/Login'))
 const ProfilePage = React.lazy(() => import('./Pages/User/Profile/Profile'))
+const EditProfilePage = React.lazy(() => import('./Pages/User/EditProfile/EditProfile'))
 const DeleteProfilePage = React.lazy(() => import('./Pages/User/DeleteProfile/DeleteProfile'))
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
         <Route path='/Login' element={ <React.Suspense><LoginPage/> </React.Suspense> }/>
         <Route path='/Registration' element={ <React.Suspense><RegistrationPage /> </React.Suspense> } />
         <Route path='/Profile' element={ <React.Suspense><ProfilePage/> </React.Suspense> }/>
+        <Route path='/EditProfile' element={ <React.Suspense><EditProfilePage/> </React.Suspense> }/>
         <Route path='/Delete' element={ <React.Suspense><DeleteProfilePage/> </React.Suspense> }/>
       </Routes>
     </div>
