@@ -1,7 +1,10 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import Heading from '../../../Components/Common/Heading/Heading';
 import Input from '../../../Components/Common/UserInput/Input';
-import Button from '../../../Components/Common/Button/Button';
+
 
 const Profile:React.FC = () => {
 
@@ -32,15 +35,9 @@ return (
                 LabelStyle = 'font-bold'
                 inputStyle = 'border-black border-b h-8 outline-none truncate px-1 py-2 text-black w-96'         
             />
-            <div className='flex gap-40 mt-5'>
-                <Button
-                    ButtonText='Edit Details'
-                    ButtonStyle='bg-black cursor-pointer text-center text-white px-3 py-1 rounded'
-                />
-                <Button
-                    ButtonText='Delete My Profile'
-                    ButtonStyle='bg-black cursor-pointer text-center text-white px-3 py-1 rounded'
-                />
+            <div className='flex gap-16 mt-5'>
+                <button className='bg-black cursor-pointer flex items-center justify-center gap-4 text-center text-white px-2 py-1.5 rounded w-40' ><FontAwesomeIcon icon={faPenToSquare} />Edit Details</button>
+                <button className='bg-black cursor-pointer flex items-center justify-center gap-4 text-center text-white px-2 py-1.5 rounded w-40' ><FontAwesomeIcon icon={faTrash} />Delete My Profile</button>
             </div>
         </form>
     </div>
