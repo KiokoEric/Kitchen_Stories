@@ -10,6 +10,7 @@ const CreatePage = React.lazy(() => import('./Pages/Create/Create'))
 const MyRecipesPage = React.lazy(() => import('./Pages/MyRecipes/MyRecipes'))
 const InstructionsPage = React.lazy(() => import('./Pages/Instructions/Instructions'))
 const LoginPage = React.lazy(() => import('./Pages/User/Login/Login'))
+const RegistrationPage = React.lazy(() => import('./Pages/User/Registration/Registration'))
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
         <Route path='/MyRecipes' element={ <React.Suspense><MyRecipesPage /> </React.Suspense> } />
         <Route path=':MealId' element={ <React.Suspense><InstructionsPage /> </React.Suspense> } />
         <Route path='/Login' element={ <React.Suspense><LoginPage/> </React.Suspense> }/>
+        <Route path='/Registration' element={ <React.Suspense><RegistrationPage /> </React.Suspense> } />
       </Routes>
     </div>
   )

@@ -75,12 +75,12 @@ return (
             <Button ButtonText='Favourites Recipes' ButtonStyle='bg-lightOrange px-3 py-1 rounded text-base text-white' />
         </Link>
         {
-            !UserID ? <Link to="/Register" className='User' >
+            <Link to="/Registration">
                 <Button
                     ButtonText='Sign Up'
-                    ButtonStyle='bg-lightOrange cursor-pointer text-center text-base text-white px-3 py-1 rounded'
+                    ButtonStyle='bg-black cursor-pointer text-center text-base text-white px-5 py-1 rounded'
                 />
-            </Link> : null
+            </Link>
             }
             {
             !Cookie.auth_token ?
