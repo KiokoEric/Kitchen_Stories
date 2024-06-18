@@ -4,7 +4,7 @@ interface InputProps {
     ContainerStyle: string;
     Label: string;
     LabelStyle: string,
-    Placeholder: string;
+    Placeholder?: string;
     inputStyle: string;
     error?: string;
 }

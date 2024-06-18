@@ -6,7 +6,6 @@ import { useCookies } from "react-cookie";
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Heading from '../../../Components/Common/Heading/Heading';
-import Input from '../../../Components/Common/UserInput/Input';
 import Button from '../../../Components/Common/Button/Button';
 
 interface FormValues {
@@ -14,7 +13,7 @@ interface FormValues {
     Password: string;
 };
 
-const Login: React.FC<FormValues>  = () => {
+const Login: React.FC  = () => {
 
     const LoginSchema = z.object({
         Email: z.string().min(1, { message: 'Email is required'}),

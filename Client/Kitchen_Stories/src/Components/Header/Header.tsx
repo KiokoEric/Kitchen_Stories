@@ -100,7 +100,7 @@ return (
                 />
             )
         }
-            <Link to={`/Profile/${UserID}`} >
+            <Link to={`/Profile`} >
                 <FaUser size="2rem" className="bg-black text-white cursor-pointer px-1.5 py-1.5 rounded-full" />
             </Link>
                 {UserID ? <h4 className="font-bold"><span>Welcome</span>{Name}</h4> : null }
