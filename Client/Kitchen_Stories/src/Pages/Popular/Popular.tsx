@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import Details from '../../Components/Common/Details/Details';
+import Ingredients from '../../Components/Common/Ingredients/Ingredients';
 
 const Popular: React.FC = () => {
 
@@ -30,7 +30,7 @@ return (
                         <h2 className='font-bold text-3xl'>{Item.strMeal} <span>({Item.strArea})</span> </h2>
                         <h4 className='font-bold text-2xl'>Ingredients</h4>
                         <div className='flex flex-row gap-14'>
-                            <Details DetailsCSS='list-disc list-inside'
+                            <Ingredients DetailsCSS='list-disc list-inside'
                                 ifIngredient1 = {Item.strIngredient1}
                                 ifIngredient2 = {Item.strIngredient2}
                                 ifIngredient3 = {Item.strIngredient3}
@@ -47,7 +47,7 @@ return (
                                 Measure4 = {Item.strMeasure4}
                                 Measure5 = {Item.strMeasure5}
                             />
-                            <Details DetailsCSS='list-disc list-inside'
+                            <Ingredients DetailsCSS='list-disc list-inside'
                                 ifIngredient1 = {Item.strIngredient6}
                                 ifIngredient2 = {Item.strIngredient7}
                                 ifIngredient3 = {Item.strIngredient8}
@@ -64,7 +64,7 @@ return (
                                 Measure4 = {Item.strMeasure9}
                                 Measure5 = {Item.strMeasure10}
                             />
-                            <Details DetailsCSS='list-disc list-inside'
+                            <Ingredients DetailsCSS='list-disc list-inside'
                                 ifIngredient1 = {Item.strIngredient11}
                                 ifIngredient2 = {Item.strIngredient12}
                                 ifIngredient3 = {Item.strIngredient13}

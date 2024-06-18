@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import Details from '../../Components/Common/Details/Details';
+import Details from '../../Components/Common/Ingredients/Ingredients';
 
 const Instructions: React.FC = () => {
 
@@ -18,7 +18,7 @@ const Instructions: React.FC = () => {
     })
 
 return (
-    <div className='mb-5 mt-5'>
+    <div className='mb-5 mt-5 px-10'>
         {
         (!Items) ? <h2 className='font-bold text-red-700 text-center text-3xl'>No Results Found</h2> :
         Items.map((Item: any)=> {
