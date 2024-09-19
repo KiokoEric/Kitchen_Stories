@@ -1,24 +1,30 @@
 import React from 'react';
 
 interface InputProps {
-    ContainerStyle: string;
+    Value?:any;
+    type?: any;
+    Change?: any;
     Label: string;
-    LabelStyle: string,
-    Placeholder?: string;
-    inputStyle: string;
     error?: string;
+    Children?: any;
+    TextStyle?: string;
+    inputStyle: string;
+    LabelStyle: string;
+    Placeholder?: string;
+    ContainerStyle: string;
 }
 
-const Input: React.FC<InputProps> = ({ ContainerStyle, Label, LabelStyle, Placeholder, inputStyle, error }) => {
+const Input: React.FC<InputProps> = ({ ContainerStyle, type, Children, Label, LabelStyle, Placeholder, inputStyle, Value, Change, TextStyle}) => {
 
 return (
     <div className={ContainerStyle}>
         <label className={LabelStyle}>{Label}</label>
-        <input type="text" placeholder={Placeholder} className={inputStyle} />
-        {error && <p className="mb-0.5 mt-0.5 text-center text-red-700">{error}</p>}
+        <div className={TextStyle}>
+            <input type={type} placeholder={Placeholder} className={inputStyle} value={Value} onChange={Change} />
+            {Children}
+        </div>
     </div>
 )
 }
 
 export default React.memo(Input)
-
