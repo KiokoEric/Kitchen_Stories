@@ -1,19 +1,46 @@
-import React, { useEffect, useState } from 'react';
+import axios from "axios";
 import { Link } from 'react-router-dom';
+import { useCookies } from "react-cookie";
+import React, { useEffect, useState } from 'react';
+import Button from '../../Components/Common/Button/Button';
+import { useGetUserID } from "../../Components/Hooks/useGetUserID"; 
 import Ingredients from '../../Components/Common/Ingredients/Ingredients';
 
 const Popular: React.FC = () => {
 
-    const [Popular, setPopular] = useState([])
+    const UserID = useGetUserID();
+    const [Cookie, _] = useCookies(["auth_token"])
+
+    // USESTATE HOOK
+
+    const [Popular, setPopular] = useState<[]>([])
+    const [userOwner, setuserOwner] = useState<any>(UserID)
+
+    // CALLING ON POPULAR RECIPES FROM MEALDB API
 
     useEffect(() => {
         fetch(`https://www.themealdb.com/api/json/v1/1/random.php`) 
         .then(response => response.json())
         .then(data => {
             setPopular(data.meals)
-        } )
+        })
         .catch(err => console.error(err));
     },[])
+
+    // ADD TO FAVOURITES
+
+    const AddToFavourites = async (ID: any) => {
+        try {
+            const data = {
+                ID, userOwner
+            }
+            await axios.post(`http://localhost:4000/Favourites/Favourite/${ID}`, data, {
+                headers: { authorization: Cookie.auth_token },
+            })
+        } catch (error) {
+            console.error(error);
+        }
+    }
 
 return (
     <div id='Popular' className='mb-10' >
@@ -22,14 +49,14 @@ return (
     Popular.map((Item: any) => {
         return(
             <div key={Item.idMeal} >
-                <figure className='flex gap-10 justify-center px-5'>
-                    <Link className='Link' to={`/${Item.idMeal}`}> 
+                <figure className='flex flex-col gap-5 justify-center px-5 sm:flex-row'>
+                    <Link to={`/${Item.idMeal}`}> 
                         <img src={Item.strMealThumb} alt="" className='cursor-pointer rounded' id='RecipeImage' />
                     </Link>
-                    <figcaption className='flex flex-col gap-5'>
-                        <h2 className='font-bold text-3xl'>{Item.strMeal} <span>({Item.strArea})</span> </h2>
+                    <figcaption className='flex flex-col items-center gap-1 sm:gap-5 sm:items-start'>
+                        <h2 className='font-bold text-3xl text-center sm:text-left '>{Item.strMeal} <span>({Item.strArea})</span> </h2>
                         <h4 className='font-bold text-2xl'>Ingredients</h4>
-                        <div className='flex flex-row gap-14'>
+                        <div className='grid grid-cols-2 gap-2 sm:grid-cols-3'>
                             <Ingredients DetailsCSS='list-disc list-inside'
                                 ifIngredient1 = {Item.strIngredient1}
                                 ifIngredient2 = {Item.strIngredient2}
@@ -82,7 +109,12 @@ return (
                                 Measure5 = {Item.strMeasure15}
                             />
                         </div>
-                    </figcaption>
+                        <Button
+                            onClick={() => AddToFavourites(Item.idMeal)}
+                            ButtonStyle='bg-darkOrange cursor-pointer m-auto rounded text-center text-white px-3 py-2 w-2/3 hover:bg-black sm:w-1/2'
+                            ButtonText='Add to Favourites'
+                        />
+                    </figcaption> 
                 </figure>
             </div>
             )
