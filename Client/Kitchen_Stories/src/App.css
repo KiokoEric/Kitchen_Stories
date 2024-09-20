@@ -18,23 +18,18 @@ html::-webkit-scrollbar-thumb {
 html::-webkit-scrollbar-track {
   background-color: black;
 }
-:root {
-
-  --Bright-Orange: #f60;
-  --light-primary: hsl(11, 87%, 59%);
-  --light-primary-hover: hsl(11, 60%, 50%);
-
-}
 body {
   font-family: 'Instrument Serif', serif;
   font-size: 18px;
+  min-height: 35rem;
+  overflow-x: hidden;
 }
 #Home {
   background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(./assets/Recipe_Homepage.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 250px;
+  height: 280px;
   width: 100%;
 }
 #Explore {
@@ -94,7 +89,7 @@ body {
   width: 100%;
 }
 #Profile {
-  background-image: url(./assets/My_Profile.jpg);
+  background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),url(./assets/My_Profile.jpg);
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: cover;
@@ -126,5 +121,87 @@ body {
   font-size: 18px;
   white-space: pre-wrap;
   word-wrap: break-word;
-  width: 550px;
+  width: 500px;
+}
+#Bookmark {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+}
+#Bookmark:hover::after {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  color: black;
+  content: "Add to Favourites";
+  font-family: 'Instrument Serif', serif;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 5px;
+  position: absolute;
+  left: 95px;
+  text-align: center;
+  transform: translateX(-50%);
+  width: 120px;
+  z-index: 1;
+}
+#Edit {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+}
+#Edit:hover::after {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  color: black;
+  content: "Edit Recipe";
+  font-family: 'Instrument Serif', serif;
+  font-size: 17px;
+  font-weight: bold;
+  padding: 5px;
+  position: absolute;
+  top: 45px;
+  text-align: center;
+  transform: translateX(-50%);
+  width: 90px;
+  z-index: 1;
+}
+#Delete {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+}
+#Delete:hover::after {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  color: black;
+  content: "Delete Recipe";
+  font-family: 'Instrument Serif', serif;
+  font-size: 17px;
+  font-weight: bold;
+  padding: 5px;
+  position: absolute;
+  top: 45px;
+  text-align: center;
+  transform: translateX(-50%);
+  width: 90px;
+  z-index: 1;
+}
+
+@media (max-width:550px) {
+  #Instructions {
+    margin: auto;
+    text-align: center;
+    width: 500px;
+  }
+}
+
+@media (max-width:500px) {
+  #Instructions {
+    margin: auto;
+    text-align: center;
+    width: 280px;
+  }
 }
