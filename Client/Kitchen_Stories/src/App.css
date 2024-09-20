@@ -189,6 +189,90 @@ body {
   width: 90px;
   z-index: 1;
 }
+#Play {
+  background-color: #f60;;
+  border-radius: 50%;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  padding: 1rem 1rem;
+  position: absolute;
+  top: 10.5rem;
+  left: 13.5rem;
+  width: 60px;
+  z-index: 3;
+}
+#Play::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: -20px;
+  bottom: -20px;
+  border: 10px solid #fff;
+  border-radius: 50%;
+  animation: Bloom1 1.5s linear 0.5s infinite;
+  opacity: 0;
+  z-index: 1;
+}
+#Play::after {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: -20px;
+  bottom: -20px;
+  border: 10px solid white;
+  border-radius: 50%;
+  animation: Bloom2 1.5s linear 0.5s infinite;
+  opacity: 0;
+  z-index: 1;
+}
+
+
+@keyframes Bloom1 {
+
+0% {
+  transform: scale(0.5);
+}
+50% {
+  opacity: 1;
+}
+100% {
+  transform: scale(1.5);
+}
+}
+@keyframes Bloom2 {
+
+0% {
+  transform: scale(0.5);
+}
+50% {
+  opacity: 1;
+}
+100% {
+  transform: scale(1.5);
+}
+}
+
+@media (max-width: 1200px) {
+  #Play {
+    position: absolute;
+    top: 10rem;
+    left: 8rem;
+  }
+}
+
+@media (max-width: 850px) {
+  #Play {
+    position: absolute;
+    top: 10rem;
+    left: 6rem;
+  }
+}
 
 @media (max-width:550px) {
   #Instructions {
@@ -203,5 +287,26 @@ body {
     margin: auto;
     text-align: center;
     width: 280px;
+  }
+  #Play {
+    position: absolute;
+    top: 10rem;
+    left: 10rem;
+  }
+}
+
+@media (max-width: 428px) {
+  #Play {
+    position: absolute;
+    top: 10.5rem;
+    left: 10rem;
+  }
+}
+
+@media (max-width: 375px) {
+  #Play {
+    position: absolute;
+    top: 13.5rem;
+    left: 9rem;
   }
 }

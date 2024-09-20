@@ -258,8 +258,8 @@ return (
             (Favourites.length > 0) ?  
             Favourites.map((Item: any) => { 
                 return (
-                <div key={Item.idMeal} > 
-                    <Link className='text-black no-underline' to={`/${Item.idMeal}`} key={Item.idMeal} >
+                <div className="flex flex-col items-center justify-center" key={Item.idMeal}> 
+                    <Link className='text-black no-underline' to={`/${Item.idMeal}`} key={Item.idMeal}>
                         <Output
                             figureStyle='flex flex-col gap-5 mb-5'
                             image={Item.strMealThumb}
@@ -286,8 +286,8 @@ return (
             (Favourites.length > 0) ?  
             Favourites2.map((Item: any) => { 
                 return (
-                <div key={Item.idMeal} > 
-                    <Link className='text-black no-underline' to={`/${Item.idMeal}`} key={Item.idMeal} >
+                <div className="flex flex-col items-center justify-center" key={Item.idMeal} > 
+                    <Link className='text-black no-underline' to={`/${Item.idMeal}`} key={Item.idMeal}>
                         <Output
                             figureStyle='flex flex-col gap-5 mb-5'
                             image={Item.strMealThumb}
@@ -315,8 +315,8 @@ return (
             (Favourites.length > 0) ?  
             Favourites3.map((Item: any) => { 
                 return (
-                <div key={Item.idMeal} > 
-                    <Link className='text-black no-underline' to={`/${Item.idMeal}`} key={Item.idMeal} >
+                <div className="flex flex-col items-center justify-center" key={Item.idMeal}> 
+                    <Link className='text-black no-underline' to={`/${Item.idMeal}`} key={Item.idMeal}>
                         <Output
                             figureStyle='flex flex-col gap-5 mb-5'
                             image={Item.strMealThumb}
@@ -343,8 +343,8 @@ return (
             (Favourites.length > 0) ?  
             Favourites4.map((Item: any) => { 
                 return (
-                <div key={Item.idMeal} > 
-                    <Link className='text-black no-underline' to={`/${Item.idMeal}`} key={Item.idMeal} >
+                <div className="flex flex-col items-center justify-center" key={Item.idMeal}> 
+                    <Link className='text-black no-underline' to={`/${Item.idMeal}`} key={Item.idMeal}>
                         <Output
                             figureStyle='flex flex-col gap-5 mb-5'
                             image={Item.strMealThumb}
@@ -371,8 +371,8 @@ return (
             (Favourites.length > 0) ?  
             Favourites5.map((Item: any) => { 
                 return (
-                <div key={Item.idMeal} > 
-                    <Link className='text-black no-underline' to={`/${Item.idMeal}`} key={Item.idMeal} >
+                <div className="flex flex-col items-center justify-center" key={Item.idMeal}> 
+                    <Link className='text-black no-underline' to={`/${Item.idMeal}`} key={Item.idMeal}>
                         <Output
                             figureStyle='flex flex-col gap-5 mb-5'
                             image={Item.strMealThumb}
@@ -399,8 +399,8 @@ return (
             (Favourites.length > 0) ?   
             Favourites6.map((Item: any) => { 
                 return (
-                <div key={Item.idMeal} > 
-                    <Link className='text-black no-underline' to={`/${Item.idMeal}`} key={Item.idMeal} >
+                <div className="flex flex-col items-center justify-center" key={Item.idMeal}> 
+                    <Link className='text-black no-underline' to={`/${Item.idMeal}`} key={Item.idMeal}>
                         <Output
                             figureStyle='flex flex-col gap-5 mb-5'
                             image={Item.strMealThumb}
