@@ -1,21 +1,31 @@
+import axios from "axios";
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import React, { ChangeEvent, useState } from 'react';
 import Popular from '../Popular/Popular';
+import { useCookies } from "react-cookie";
+import Button from '../../Components/Common/Button/Button';
 import Output from '../../Components/Common/Output/Output';
+import { faBookmark } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import SearchPage from '../../Components/Common/Search/SearchPage';
+import { useGetUserID } from "../../Components/Hooks/useGetUserID"; 
 
 const Home: React.FC = () => {
 
-    const [Recipes, setRecipes] = useState([])
-    const [Search, setSearch] = useState("")
-    const [SearchError, setSearchError] = useState("")
-    const [Results, setResults] = useState("")
+    const UserID = useGetUserID();
+    const [Cookie, _] = useCookies(["auth_token"])
 
-    const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
-        setSearch(e.target.value)
-    }
+    // USESTATE HOOK
 
-    const getRecipe = (e: React.FormEvent<HTMLFormElement>) => { 
+    const [Recipes, setRecipes] = useState<[]>([])
+    const [Search, setSearch] = useState<string>("")
+    const [userOwner, setuserOwner] = useState<any>(UserID)
+    const [SearchError, setSearchError] = useState<string>("")
+    const [ShowPopular, setShowPopular] = useState<boolean>(true)
+
+    // ONSEARCH FUNCTION
+
+    const onSearch = async (e: React.FormEvent) => {
         e.preventDefault()
 
         if(Search === "") {
@@ -24,26 +34,26 @@ const Home: React.FC = () => {
             fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${Search}`)
             .then(response => response.json())
             .then((data) => {
+                setSearchError("")
+                setShowPopular(false)
                 setRecipes(data.meals)
-                setResults("Results for your search will be displayed below the popular recipes section.")
             })
             .catch(err => console.error(err));
         }
     }
 
-    const onSearch = async (e: React.MouseEvent<HTMLButtonElement>) => {
-        e.preventDefault()
+    // ADD TO FAVOURITES
 
-        if(Search === "") {
-            setSearchError("Kindly enter a search item")
-        } else {
-            fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${Search}`)
-            .then(response => response.json())
-            .then((data) => {
-                setRecipes(data.meals)
-                setResults("Results for your search will be displayed below the popular recipes section.")
+    const AddToFavourites = async (ID: any) => {
+        try {
+            const data = {
+                ID, userOwner
+            }
+            await axios.post(`http://localhost:4000/Favourites/Favourite/${ID}`, data, {
+                headers: { authorization: Cookie.auth_token },
             })
-            .catch(err => console.error(err));
+        } catch (error) {
+            console.error(error);
         }
     }
 
@@ -53,31 +63,30 @@ return (
             idName= 'Home'
             ContainerStyle= 'flex flex-col items-center justify-center gap-5 mb-10 text-white'
             Heading= 'Your desired dish ?'
-            HeadingStyle= 'font-bold text-5xl'
-            formStyle= 'bg-white flex flex-row items-center justify-between gap-1 px-1 py-1 rounded w-2/5'
+            HeadingStyle= 'font-bold text-5xl mt-5 sm:mt-0'
+            formStyle= 'bg-white flex flex-row items-center justify-between gap-1 px-1 py-1 rounded w-11/12 sm:w-3/5 lg:w-2/5'
             Placeholder= 'Search Recipe...'
             inputStyle= 'outline-none px-2 py-1 text-black w-11/12'
             Search= {Search}
-            onChange= {handleSearch}
-            onSubmit= {getRecipe}
+            onChange= {e => setSearch(e.target.value)}
+            onSubmit= {onSearch}
             onClick= {onSearch}
-            ButtonStyle= 'bg-Orange px-3 py-1 rounded'
+            ButtonStyle= 'bg-lightOrange px-3 py-1 rounded'
             IconStyle= 'cursor-pointer'
             SearchError= {SearchError}
             Text= 'Search any recipe e.g burger, pizza, sandwich'
-            ErrorStyle='text-red-700'
-            Results={Results}
+            ErrorStyle='font-bold text-red-700'
         />
         <section>
-            <Popular />
+            { ShowPopular? <Popular /> : null }
         </section>
-        <section className='grid grid-cols-3 gap-5 px-10'>
+        <section className='grid grid-cols-1 gap-5 px-10 sm:grid-cols-3'>
             {
-            (!Recipes) ? <h2 className='font-bold text-red-700 text-center text-3xl'>No Results Found</h2> :
+            (!Recipes) ? <h2 className='font-bold text-red-700 text-center text-5xl w-custom'>No Results Found</h2> :
             Recipes.map((Recipe: any ) => {
             return (
-                <div>
-                    <Link className=' text-black no-underline' to={`/${Recipe.idMeal}`} >
+                <div className='flex flex-col items-center justify-center sm:items-start'>
+                    <Link className=' text-black no-underline' to={`/${Recipe.idMeal}`}>
                         <Output
                             figureStyle='flex flex-col gap-5 mb-5'
                             image={Recipe.strMealThumb}
@@ -86,6 +95,13 @@ return (
                             Title={Recipe.strMeal}
                         />
                     </Link>
+                    <Button
+                        ID="Bookmark"
+                        onClick={() => AddToFavourites(Recipe.idMeal)}
+                        Children={
+                            <FontAwesomeIcon icon={faBookmark} className='bg-orange-600 cursor-pointer p-2 rounded-sm text-white text-xl hover:bg-black' />
+                        }
+                    />
                 </div>
             )
             })
@@ -96,4 +112,3 @@ return (
 }   
 
 export default Home
-
