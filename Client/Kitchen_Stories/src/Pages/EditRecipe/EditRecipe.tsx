@@ -1,45 +1,59 @@
-import * as z from 'zod';
-import Axios from "axios";
-import React, { useState } from 'react';
+import axios from "axios";
 import { useCookies } from "react-cookie";
-import { useForm, SubmitHandler } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import Heading from '../../Components/Common/Heading/Heading';
+import { useParams } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import Input from "../../Components/Common/Input/Input";
 import Button from '../../Components/Common/Button/Button';
-
-interface FormValues {
-    Name: string;
-    Description: string;
-    Ingredients: string;
-    Instructions: string;
-    Image: string;
-};
+import Heading from '../../Components/Common/Heading/Heading';
+import TextArea from "../../Components/Common/TextArea/TextArea";
+import { useGetUserID } from "../../Components/Hooks/useGetUserID";
 
 const EditRecipe:React.FC = () => {
 
-    const RecipeSchema = z.object({
-        Name: z.string().min(1, 'Name is required'),
-        Description: z.string().min(1, 'Description is required'),
-        Ingredients: z.string().min(1, 'Ingredients are required'),
-        Instructions: z.string().min(1, 'Instructions are required'),
-        Image: z.string().min(1, 'Image link is required'),
-    });
+    const { _id } = useParams()
+    const userID = useGetUserID();
+    const [Cookie,_] = useCookies(["auth_token"])
 
-    const [Cookie,_] = useCookies(["auth_token"]);
-    const [Success, setSuccess] = useState('')
+    // USESTATE HOOK
 
-    const { register, handleSubmit, formState: { errors } } = useForm<FormValues>({
-        resolver: zodResolver(RecipeSchema),
-    });
+    const [Name, setName] = useState<string>("")
+    const [Image, setImage] = useState<string>("")
+    const [Success, setSuccess] = useState<string>("")
+    const [Ingredients, setIngredients] = useState<[]>([])
+    const [userOwner, setuserOwner] = useState<any>(userID)
+    const [Instructions, setInstructions] = useState<[]>([])
+    const [Description, setDescription] = useState<string>("")
 
+    // RECEIVING CREATED RECIPE DATA
 
-    const Edit: SubmitHandler<FormValues> =  data => {
-        Axios.post("http://localhost:4000/Recipe/EditRecipe", data , {
+    useEffect(() => {
+        axios.get(`http://localhost:4000/Recipe/${_id}`, {
+                headers: { authorization: Cookie.auth_token },
+            }) 
+        .then((Data) => { 
+            setName(Data.data.Name)
+            setImage(Data.data.Image) 
+            setDescription(Data.data.Description)
+            setIngredients(Data.data.Ingredients)
+            setInstructions(Data.data.Instructions) 
+        })
+    }, [])
+
+    // RECIPE EDIT FUNCTION
+    
+    const Edit = async (e:any) => {
+        e.preventDefault()
+
+        const data = {
+            Name, Description, Ingredients, Instructions, Image, userOwner
+        }
+        axios.put(`http://localhost:4000/Recipe/${_id}`, data , {
             headers: { authorization: Cookie.auth_token },
         }) 
-        setSuccess('Recipe has been successfully edited.')
+        .then(() => {
+            setSuccess('Recipe has been successfully edited.') 
+        })
     };
-
 
 return (
     <div>
@@ -50,37 +64,53 @@ return (
             HeadingStyle='font-bold text-5xl'
         />
         <section className='flex flex-col items-center mb-5'>
-            <form method="post" onSubmit={handleSubmit(Edit)} encType="multipart/form-data" className='flex flex-col gap-4'>
-                <div className='flex flex-col gap-2'>
-                    <label className='font-bold' htmlFor="">Name</label> 
-                    <textarea placeholder="Enter Name..." {...register('Name', { required: 'Name is required' })} className='border-black border-b h-8 outline-none truncate px-1 py-1 text-black w-96' required />
-                    {errors.Name && <p className="text-center text-red-700">{errors.Name.message}</p>}
-                </div>
-                <div className='flex flex-col gap-2'>
-                    <label className='font-bold' htmlFor="">Description</label>
-                    <textarea className="border-black border-b h-20 outline-none px-1 py-2 w-96"  placeholder="Enter Description..." {...register('Description', { required: 'Description is required' })} required/>
-                    {errors.Description && <p className="text-center text-red-700">{errors.Description.message}</p>}
-                </div>
-                <div className='flex flex-col gap-2'>
-                    <label className='font-bold' htmlFor="">Ingredients</label>
-                    <textarea placeholder='Enter Ingredients...' className="border-black border-b h-20 outline-none px-1 py-2 w-96" {...register('Ingredients', { required: 'Ingredients is required' })} required ></textarea>
-                    {errors.Ingredients && <p className="text-center text-red-700">{errors.Ingredients.message}</p>}
-                </div>
-                <div className='flex flex-col gap-2'>
-                    <label className='font-bold' htmlFor="">Instructions</label>
-                    <textarea placeholder='Enter Instructions...' className="border-black border-b h-20 px-1 outline-none py-2 w-96" {...register('Instructions', { required: 'Instructions is required' })} required ></textarea>
-                    {errors.Instructions && <p className="text-center text-red-700">{errors.Instructions.message}</p>}
-                </div>
-                <div className='flex flex-col gap-2'>
-                    <label className='font-bold' htmlFor="">Image</label>
-                    <textarea placeholder='Enter Image Url...' {...register('Image', { required: 'Image is required' })} className='border-black border-b h-8 outline-none px-2 py-1 truncate text-black w-96' required />
-                    {errors.Image && <p className="text-center text-red-700">{errors.Image.message}</p>}
-                </div>
-                <div className='mt-10' >
+            <form method="post" onSubmit={Edit} encType="multipart/form-data" className='flex flex-col gap-4'>
+                <Input 
+                    ContainerStyle = 'flex flex-col gap-2'
+                    Label = 'Name'
+                    LabelStyle = 'font-bold'
+                    inputStyle = 'border-black border-b h-8 outline-none truncate px-1 py-1 text-black w-80 sm:w-96'  
+                    Value={Name}
+                    Change={(e: any) => setName(e.target.value)}
+                />
+                <TextArea 
+                    ContainerStyle = 'flex flex-col gap-2'
+                    Label = 'Description'
+                    LabelStyle = 'font-bold'
+                    inputStyle = 'border-black border-b h-20 outline-none truncate px-1 py-1 text-black w-80 sm:w-96'   
+                    Value={Description}
+                    Change={(e: any) => setDescription(e.target.value)}
+                />
+                <TextArea
+                    ContainerStyle = 'flex flex-col gap-2'
+                    Label = 'Ingredients'
+                    LabelStyle = 'font-bold'
+                    inputStyle = 'border-black border-b h-20 outline-none truncate px-1 py-1 text-black w-80 sm:w-96'  
+                    Value={Ingredients}
+                    Change={(e: any) => setIngredients(e.target.value)}
+                />
+                <TextArea 
+                    ContainerStyle = 'flex flex-col gap-2'
+                    Label = 'Instructions'
+                    LabelStyle = 'font-bold'
+                    inputStyle = 'border-black border-b h-20 outline-none truncate px-1 py-1 text-black w-80 sm:w-96'
+                    Value={Instructions}
+                    Change={(e: any) => setInstructions(e.target.value)}
+                    />
+                <Input 
+                    ContainerStyle = 'flex flex-col gap-2'
+                    Label = 'Image'
+                    LabelStyle = 'font-bold'
+                    inputStyle = 'border-black border-b h-8 outline-none truncate px-1 py-1 text-black w-80 sm:w-96'  
+                    Value={Image}
+                    Change={(e: any) => setImage(e.target.value)}       
+                />
+                <div className='mt-10'>
                     <h4 className='font-bold text-center text-green-700'>{Success}</h4>
                     <Button
                         ButtonText='Edit Recipe'
                         ButtonStyle='bg-black cursor-pointer text-center text-white px-3 py-1 rounded'
+                        onClick={Edit}
                     />
                 </div>
             </form>
