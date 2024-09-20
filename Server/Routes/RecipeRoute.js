@@ -1,6 +1,6 @@
+const dotenv = require('dotenv');
 const express = require('express');
 const jwt = require("jsonwebtoken");
-const dotenv = require('dotenv');
 const RecipeRoute = express.Router();
 const Recipe = require("../Models/Recipe");
 const cookieParser = require("cookie-parser");
@@ -14,9 +14,9 @@ const verifyToken = async (req, res, next) => {
 
     const authHeader = req.headers.authorization;
     if (authHeader) {
-        jwt.verify(authHeader, myPassword , (err) => {
+        jwt.verify(authHeader, myPassword , (err) => {   
         if (err) {
-            return res.sendStatus(403);
+            return res.sendStatus(403); 
         }
         next();
         });
@@ -24,6 +24,8 @@ const verifyToken = async (req, res, next) => {
         return res.status(401).send("Authorisation token is missing!");
     }
 }
+
+// ADDING A RECIPE
 
 RecipeRoute.post("/AddRecipe", verifyToken ,async (req, res) => {
     const Recipes = new Recipe(req.body)
@@ -36,7 +38,9 @@ RecipeRoute.post("/AddRecipe", verifyToken ,async (req, res) => {
     }
 })
 
-RecipeRoute.get("/AllRecipes", async (req, res) => { 
+// GETTING ALL THE RECIPES CREATED BY ALL THE USERS
+
+RecipeRoute.get("/AllRecipes", async (req, res) => {  
     try{
         const AllRecipes = await Recipe.find() 
         res.json(AllRecipes)
@@ -46,17 +50,19 @@ RecipeRoute.get("/AllRecipes", async (req, res) => {
     }
 })
 
+// GETTING ALL THE RECIPES CREATED BY A SINGLE USER BY THEIR USER ID
+
 RecipeRoute.get('/:userId/Recipes', async (req, res) => {
     const userId = req.params.userId;
     try {
         const Recipes = await Recipe.find({ userOwner: userId });
         res.json(Recipes);
     } catch (error) {
-        res.status(500).json({ message: 'Error fetching Recipes.' });
+        res.status(500).json({ message: 'Error fetching Recipes.' }); 
     }
 });
 
-// UPDATE
+// UPDATING A RECIPE BASED ON THE RECIPE ID
 
 RecipeRoute.put("/:id", async (req, res) => {
     try{
@@ -68,7 +74,7 @@ RecipeRoute.put("/:id", async (req, res) => {
     }
 })
 
-// DELETE
+// DELETING A RECIPE BASED ON THE RECIPE ID
 
 RecipeRoute.delete("/:id", async (req, res) => {
     try{
@@ -79,6 +85,8 @@ RecipeRoute.delete("/:id", async (req, res) => {
         res.send(err)
     }
 })
+
+// GETTING A RECIPE BY ITS ID
 
 RecipeRoute.get('/:id', async (req, res) => {
     try {
