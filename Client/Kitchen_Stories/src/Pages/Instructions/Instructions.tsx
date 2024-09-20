@@ -9,6 +9,7 @@ const Instructions: React.FC = () => {
     // USESTATE HOOK
 
     const [Items, setItems] = useState<[]>([])
+    const [VideoLink, setVideoLink] = useState<string>('')
 
     // CALLING ON THE RECIPE DETAILS FROM MEALDB
     
@@ -16,13 +17,22 @@ const Instructions: React.FC = () => {
         fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${MealId}`)  
         .then(response => response.json())
         .then((data) => {
+            const videoUrl = data.meals[0].strYoutube
             setItems(data.meals)
+            setVideoLink(videoUrl)
         })
         .catch(err => console.error(err));
     })
 
+    const PlayVideo = () => {
+        window.open(VideoLink)
+    }
+
 return (
     <div className='mb-5 mt-5 px-5'>
+        <article>
+            <ion-icon onClick={PlayVideo} id="Play" name="play-sharp"></ion-icon>
+        </article>
         {
         (!Items) ? <h2 className='font-bold text-red-700 text-center text-3xl'>No Results Found</h2> :
         Items.map((Item: any)=> {

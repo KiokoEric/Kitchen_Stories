@@ -39,32 +39,32 @@ const RecipeDetails:React.FC = () => {
 
 return (
     <>
-        {
-        (!Recipes) ? <h2 className='font-bold text-red-700 text-center text-3xl'>No Results Found</h2> :
-            <div key={Recipes._id}>
-                <figure className='flex flex-col gap-10 items-center justify-center p-5 sm:flex-row sm:items-start'>
-                    <div>
-                        <img src={Recipes.Image} alt="" width='400px' className='cursor-pointer mb-5 rounded' />
-                        <div className="flex gap-2 justify-center sm:justify-end">
-                            <Link id="Edit" to={`/Edit/${Recipes._id}`} key={Recipes._id} >
-                                <FontAwesomeIcon icon={faPenToSquare} className="bg-orange-600 cursor-pointer font-bold p-3 rounded-full text-xl" />
-                            </Link>
-                            <div id="Delete">
-                                <FontAwesomeIcon icon={faTrash} className="bg-orange-600 cursor-pointer font-bold p-3 rounded-full text-xl" onClick={() => handleDelete(Recipes._id)} /> 
-                            </div>
+    {
+    (!Recipes) ? <h2 className='font-bold text-red-700 text-center text-3xl'>No Results Found</h2> :
+        <div key={Recipes._id}>
+            <figure className='flex flex-col gap-10 items-center justify-center p-5 sm:flex-row sm:items-start'>
+                <div>
+                    <img src={Recipes.Image} alt="" width='400px' className='cursor-pointer mb-5 rounded' />
+                    <div className="flex gap-2 justify-center sm:justify-end">
+                        <Link id="Edit" to={`/Edit/${Recipes._id}`} key={Recipes._id} >
+                            <FontAwesomeIcon icon={faPenToSquare} className="bg-orange-600 cursor-pointer font-bold p-3 rounded-full text-xl" />
+                        </Link>
+                        <div id="Delete">
+                            <FontAwesomeIcon icon={faTrash} className="bg-orange-600 cursor-pointer font-bold p-3 rounded-full text-xl" onClick={() => handleDelete(Recipes._id)} /> 
                         </div>
                     </div>
-                    <figcaption className='flex flex-col gap-5'>
-                        <h2 className='font-bold text-center text-3xl sm:text-left'>{Recipes.Name}</h2>
-                        <p className="text-center sm:text-left" >{Recipes.Description}</p> 
-                        <h3 className='font-bold m-auto text-2xl text-center w-11/12 sm:text-left'>Ingredients</h3>
-                        <pre id="Instructions" >{Recipes.Ingredients}</pre>
-                        <h3 className='font-bold m-auto text-2xl text-center w-11/12 sm:text-left'>Instructions</h3>
-                        <pre id="Instructions">{Recipes.Instructions}</pre>
-                    </figcaption>
-                </figure>
-            </div>
-        }
+                </div>
+                <figcaption className='flex flex-col gap-5'>
+                    <h2 className='font-bold text-center text-3xl sm:text-left'>{Recipes.Name}</h2>
+                    <p className="text-center sm:text-left" >{Recipes.Description}</p> 
+                    <h3 className='font-bold m-auto text-2xl text-center w-11/12 sm:text-left'>Ingredients</h3>
+                    <pre id="Instructions" >{Recipes.Ingredients}</pre>
+                    <h3 className='font-bold m-auto text-2xl text-center w-11/12 sm:text-left'>Instructions</h3>
+                    <pre id="Instructions">{Recipes.Instructions}</pre>
+                </figcaption>
+            </figure>
+        </div>
+    }
     </>
 )
 }
