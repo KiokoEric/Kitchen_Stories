@@ -24,9 +24,8 @@ const RecipeSchema = new mongoose.Schema ({
         default: Date.now,
     },
     userOwner: {
-        type: mongoose.Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId, 
         ref: "User",
-        required: true
     },
 })
 
