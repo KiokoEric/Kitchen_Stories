@@ -59,155 +59,162 @@ const Header:React.FC = () => {
 return (
     <div className='flex items-center justify-between px-1 shadow-lg sticky'>
         <section>
-            <Link to="/Home" className='flex gap-2 items-center justify-center text-black no-underline'>
-                <img src={Logo} alt="" width="50px" />
-                <h1 className='font-bold text-xl sm:text-3xl'>Kitchen Stories</h1>
-            </Link>
+        <Navigate
+            Navigation="/Home"
+            children={<img src={Logo} alt="" width="50px" />}
+            NavigateStyle="flex gap-2 font-bold items-center justify-center text-black text-2xl no-underline sm:text-3xl"
+            NavigateText="Kitchen Stories"
+        />
         </section>
         {/* NAVIGATION LINKS (HIDDEN ON MOBILE)  */}
         <nav className='hidden xl:flex xl:gap-10 xl:items-center xl:justify-center'>
             <Navigate
                 Navigation="/Home"
-                NavigateStyle="text-black no-underline"
+                NavigateStyle="text-black no-underline hover:text-Orange"
                 NavigateText="Home"
             />
             <Navigate
                 Navigation="/Explore"
-                NavigateStyle="text-black no-underline"
+                NavigateStyle="text-black no-underline hover:text-Orange"
                 NavigateText="Explore"
             />
             <Navigate
                 Navigation="/Categories"
-                NavigateStyle="text-black no-underline"
+                NavigateStyle="text-black no-underline hover:text-Orange"
                 NavigateText="Categories"
             />
             <Navigate
                 Navigation="/Nationality"
-                NavigateStyle="text-black no-underline"
+                NavigateStyle="text-black no-underline hover:text-Orange"
                 NavigateText="Nationality"
             />
             <Navigate
                 Navigation="/Create"
-                NavigateStyle="text-black no-underline"
+                NavigateStyle="text-black no-underline hover:text-Orange"
                 NavigateText="Create Recipe"
             />
             <Navigate
                 Navigation="/MyRecipes"
-                NavigateStyle="text-black no-underline"
+                NavigateStyle="text-black no-underline hover:text-Orange"
                 NavigateText="My Recipes"
             />
         </nav>
         <section className="hidden xl:flex items-center justify-center gap-2">
-        <Link to="/Favourites">
-            <Button ButtonText='Favourites Recipes' ButtonStyle='bg-lightOrange flex gap-2 items-center px-3 py-1 rounded text-base text-white' Children={<IoIosBookmark size="1.2rem" />} />
-        </Link>
-        {   !UserID?
-            <Link to="/Registration">
-                <Button
-                    ButtonText='Sign Up'
-                    ButtonStyle='bg-black cursor-pointer text-center text-base text-white px-5 py-1 rounded'
-                />
-            </Link> : null
+        <Navigate
+            Navigation="/Favourites"
+            children={<IoIosBookmark size="1.2rem" />} 
+            NavigateStyle="bg-lightOrange cursor-pointer flex gap-2 items-center px-3 py-1 rounded text-base text-white hover:bg-black"
+            NavigateText="Favourite Recipes"
+        />
+        {!UserID?
+            <Navigate
+                Navigation="/Registration"
+                NavigateStyle="bg-black cursor-pointer text-center text-base text-white px-5 py-1 rounded"
+                NavigateText="Sign Up"
+            />  : null
         }
         {
         !Cookie.auth_token ?
         (
-            <Link to="/">
-                <Button
-                    ButtonText='Login'
-                    ButtonStyle='bg-black cursor-pointer text-center text-base text-white px-5 py-1 rounded'
-                />
-            </Link>
+            <Navigate
+                Navigation="/"
+                NavigateStyle="bg-black cursor-pointer text-center text-base text-white px-5 py-1 rounded"
+                NavigateText="Login"
+            />
         ) : 
         (
-        <Button
-            ButtonText='Logout'
-            ButtonStyle='bg-black cursor-pointer h-8 text-center text-base text-white px-3 py-1 rounded'
-            onClick={Logout}
-        />
+            <Button
+                ButtonText='Logout'
+                ButtonStyle='bg-black cursor-pointer h-8 text-center text-base text-white px-3 py-1 rounded'
+                onClick={Logout}
+            />
         )
         }
         {
-            UserID ? 
-            <Link to={`/Profile/${UserID}`}>
-                <FaUser size="2rem" className="bg-black text-white cursor-pointer px-1.5 py-1.5 rounded-full" />
-            </Link> : null
+        UserID ? 
+            <Navigate
+                Navigation={`/Profile/${UserID}`}
+                children={<FaUser size="2rem" className="bg-black text-white cursor-pointer px-1.5 py-1.5 rounded-full" />}
+            /> : null
         }
         { UserID ? <h4 className="font-bold flex flex-col text-center"><span>Welcome</span>{Name}</h4> : null }
     </section>
     <div className="xl:hidden flex items-center gap-3">
         {
-            UserID ? 
-            <Link to={`/Profile/${UserID}`}>
-                <FaUser size="1.8rem" className="bg-black text-white cursor-pointer px-1.5 py-1.5 rounded-full" />
-            </Link> : null
+        UserID ? 
+            <Navigate
+                Navigation={`/Profile/${UserID}`}
+                children={<FaUser size="1.8rem" className="bg-black text-white cursor-pointer px-1.5 py-1.5 rounded-full" />}
+            /> : null
         }
-        <button onClick={toggleMenu} className="focus:outline-none">
-            {ExtendNavbar ? <FontAwesomeIcon icon={faX} className="text-sm" /> : <FontAwesomeIcon icon={faBars} className="text-base" />}
-        </button>
+        <Button
+            Children={ExtendNavbar ? <FontAwesomeIcon icon={faX} className="text-sm" /> : <FontAwesomeIcon icon={faBars} className="text-base" />}
+            ButtonStyle='focus:outline-none'
+            onClick={toggleMenu}
+        />
         { UserID ? <h4 className="font-bold flex flex-col text-center"><span>Welcome</span>{Name}</h4> : null }
         {/* MOBILE MENU */}
         {ExtendNavbar && (
             <nav className="bg-white absolute top-11 mt-1.5 right-0 flex flex-col gap-4 m-auto pl-4 pt-2 pb-8 rounded-Header text-base text-black w-36 xl:hidden">
                 <Navigate
                     Navigation="/Home"
-                    NavigateStyle="border-b border-black text-black no-underline w-28"
+                    NavigateStyle="border-b border-black text-black no-underline w-28 hover:text-Orange"
                     NavigateText="Home"
                 />
                 <Navigate
                     Navigation="/Explore"
-                    NavigateStyle="border-b border-black text-black no-underline w-28"
+                    NavigateStyle="border-b border-black text-black no-underline w-28 hover:text-Orange"
                     NavigateText="Explore"
                 />
                 <Navigate
                     Navigation="/Categories"
-                    NavigateStyle="border-b border-black text-black no-underline w-28"
+                    NavigateStyle="border-b border-black text-black no-underline w-28 hover:text-Orange"
                     NavigateText="Categories"
                 />
                 <Navigate
                     Navigation="/Nationality"
-                    NavigateStyle="border-b border-black text-black no-underline w-28"
+                    NavigateStyle="border-b border-black text-black no-underline w-28 hover:text-Orange"
                     NavigateText="Nationality"
                 />
                 <Navigate
                     Navigation="/Create"
-                    NavigateStyle="border-b border-black text-black no-underline w-28"
+                    NavigateStyle="border-b border-black text-black no-underline w-28 hover:text-Orange"
                     NavigateText="Create Recipe"
                 />
                 <Navigate
                     Navigation="/MyRecipes"
-                    NavigateStyle="border-b border-black text-black no-underline w-28"
+                    NavigateStyle="border-b border-black text-black no-underline w-28 hover:text-Orange"
                     NavigateText="My Recipes"
                 />
                 <Navigate
                     Navigation="/Favourites"
-                    NavigateStyle="border-b border-black text-black no-underline w-28"
+                    NavigateStyle="border-b border-black text-black no-underline w-28 hover:text-Orange"
                     NavigateText="Favourites"
                 />
                 {
                     !UserID? <Navigate
                         Navigation="/Registration"
-                        NavigateStyle="border-b border-black text-black no-underline w-28"
+                        NavigateStyle="border-b border-black text-black no-underline w-28 hover:text-Orange"
                         NavigateText="Sign Up"
                     /> : null
                 }
                 {
-                    !Cookie.auth_token ?
+                !Cookie.auth_token ?
+                (
+                    <Navigate
+                        Navigation="/"
+                        NavigateStyle="border-b border-black text-black no-underline w-28 hover:text-Orange"
+                        NavigateText="Login"
+                        />
+                    ) : 
                     (
                         <Navigate
-                            Navigation="/"
-                            NavigateStyle="border-b border-black text-black no-underline w-28"
-                            NavigateText="Login"
-                            />
-                        ) : 
-                        (
-                            <Navigate
-                                NavigateStyle="border-b border-black text-black no-underline w-28"
-                                NavigateText="Logout"
-                                onClick={Logout}
-                            />
-                        )
-                    }
+                            NavigateStyle="border-b border-black text-black no-underline w-28 hover:text-Orange"
+                            NavigateText="Logout"
+                            onClick={Logout}
+                        />
+                    )
+                }
                 </nav>
             )}
         </div>
