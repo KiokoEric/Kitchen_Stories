@@ -201,7 +201,7 @@ body {
   padding: 1rem 1rem;
   position: absolute;
   top: 10.5rem;
-  left: 13.5rem;
+  left: 12rem;
   width: 60px;
   z-index: 3;
 }
@@ -266,11 +266,11 @@ body {
   }
 }
 
-@media (max-width: 850px) {
+@media (max-width: 860px) {
   #Play {
     position: absolute;
     top: 10rem;
-    left: 6rem;
+    left: 5.5rem;
   }
 }
 
@@ -279,6 +279,11 @@ body {
     margin: auto;
     text-align: center;
     width: 500px;
+  }
+  #Play {
+    position: absolute;
+    top: 10rem;
+    left: 14rem;
   }
 }
 
@@ -306,7 +311,7 @@ body {
 @media (max-width: 375px) {
   #Play {
     position: absolute;
-    top: 13.5rem;
+    top: 10rem;
     left: 9rem;
   }
 }
