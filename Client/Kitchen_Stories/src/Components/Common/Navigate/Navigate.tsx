@@ -13,7 +13,7 @@ const Navigate: React.FC<NavigateProps> = ({ Navigation, NavigateStyle, children
 return (
     <Link to={Navigation} className={NavigateStyle} onClick={onClick}>
         { children }
-        { NavigateText }
+        <p>{ NavigateText }</p>
     </Link>
 )
 }
