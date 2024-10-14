@@ -21,7 +21,7 @@ html::-webkit-scrollbar-track {
 body {
   font-family: 'Instrument Serif', serif;
   font-size: 18px;
-  min-height: 35rem;
+  min-height: 50rem;
   overflow-x: hidden;
 }
 #Home {
