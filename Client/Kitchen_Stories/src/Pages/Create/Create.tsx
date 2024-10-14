@@ -67,7 +67,7 @@ return (
             HeadingStyle='font-bold text-5xl'
         />
         <section className='flex flex-col items-center mb-5'>
-            <form method="post" onSubmit={handleSubmit(AddRecipe)} encType="multipart/form-data" className='flex flex-col gap-2'>
+            <form method="post" onSubmit={handleSubmit(AddRecipe)} encType="multipart/form-data" className='flex flex-col items-center justify-center gap-2 px-2'>
                 <div className='flex flex-col gap-2'>
                     <label className='font-bold' htmlFor="">Name</label> 
                     <textarea placeholder="Enter Name..." {...register('Name', { required: 'Name is required' })} className='border-black border-b h-8 outline-none truncate px-1 py-1 text-black w-80 sm:w-96' required />
@@ -97,7 +97,7 @@ return (
                     <h4 className='font-bold text-center text-green-700'>{Success}</h4>
                     <Button
                         ButtonText='Add Recipe'
-                        ButtonStyle='bg-black cursor-pointer text-center text-white px-3 py-1 rounded'
+                        ButtonStyle='bg-buttonOrange cursor-pointer text-center text-white px-3 py-1 rounded w-64 hover:bg-black'
                         onClick={handleSubmit(AddRecipe)}
                     />
                 </div>
