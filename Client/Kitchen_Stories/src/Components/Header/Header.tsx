@@ -1,5 +1,4 @@
 import axios from "axios";
-import { Link } from 'react-router-dom';
 import { FaUser } from "react-icons/fa6";
 import Logo from "../../assets/Logo.jpg";
 import { useCookies } from "react-cookie";
