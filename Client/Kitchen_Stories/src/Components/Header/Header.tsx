@@ -156,7 +156,7 @@ return (
         { UserID ? <h4 className="font-bold flex flex-col text-center"><span>Welcome</span>{Name}</h4> : null }
         {/* MOBILE MENU */}
         {ExtendNavbar && (
-            <nav className="bg-white absolute top-11 mt-1.5 right-0 flex flex-col gap-4 m-auto pl-4 pt-2 pb-8 rounded-Header text-base text-black w-36 xl:hidden">
+            <nav className="bg-white absolute top-11 mt-1.5 right-0 flex flex-col gap-4 m-auto pl-4 pt-2 pb-8 rounded-Header text-base text-black w-36 z-50 xl:hidden">
                 <Navigate
                     Navigation="/Home"
                     NavigateStyle="border-b border-black text-black no-underline w-28 hover:text-Orange"
