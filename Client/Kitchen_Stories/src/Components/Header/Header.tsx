@@ -132,6 +132,7 @@ return (
         {
         UserID ? 
             <Navigate
+                ID='ProfileIcon'
                 Navigation={`/Profile/${UserID}`}
                 children={<FaUser size="2rem" className="bg-black text-white cursor-pointer px-1.5 py-1.5 rounded-full" />}
             /> : null
@@ -142,6 +143,7 @@ return (
         {
         UserID ? 
             <Navigate
+                ID='ProfileIcon'
                 Navigation={`/Profile/${UserID}`}
                 children={<FaUser size="1.8rem" className="bg-black text-white cursor-pointer px-1.5 py-1.5 rounded-full" />}
             /> : null
