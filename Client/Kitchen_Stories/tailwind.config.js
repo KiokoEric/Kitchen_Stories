@@ -1,5 +1,3 @@
-import { custom } from 'zod';
-
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
