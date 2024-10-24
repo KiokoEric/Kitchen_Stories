@@ -81,7 +81,7 @@ body {
   width: 100%;
 }
 #Login {
-  background-image: url(./assets/Login.jpg);
+  background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),url(./assets/Login.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -105,7 +105,7 @@ body {
   width: 100%;
 }
 #DeleteProfile {
-  background-image: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url(./assets/Delete_Image.jpg);
+  background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(./assets/Delete_Image.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -122,6 +122,28 @@ body {
   white-space: pre-wrap;
   word-wrap: break-word;
   width: 500px;
+}
+#ProfileIcon {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+}
+#ProfileIcon:hover::after {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  color: black;
+  content: "My Profile";
+  font-family: 'Instrument Serif', serif;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 5px;
+  position: absolute;
+  top: 40.5px;
+  text-align: center;
+  transform: translateX(-50%);
+  width: 80px;
+  z-index: 1;
 }
 #Bookmark {
   cursor: pointer;
