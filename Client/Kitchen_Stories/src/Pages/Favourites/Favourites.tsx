@@ -270,7 +270,7 @@ return (
                     </Link>
                     <Button
                         onClick={() => RemoveFromFavourites(FavouritesID)}
-                        ButtonStyle='bg-orange-700 cursor-pointer m-auto rounded text-center text-white px-3 py-2 w-2/3'
+                        ButtonStyle='bg-buttonOrange cursor-pointer m-auto rounded text-center text-white px-3 py-2 w-2/3 hover:bg-black'
                         ButtonText='Remove from Favourites'
                     />
                 </div>
@@ -298,7 +298,7 @@ return (
                     </Link>
                     <Button
                         onClick={() => RemoveFromFavourites(FavouritesID2)}
-                        ButtonStyle='bg-orange-700 cursor-pointer m-auto rounded text-center text-white px-3 py-2 w-2/3'
+                        ButtonStyle='bg-buttonOrange cursor-pointer m-auto rounded text-center text-white px-3 py-2 w-2/3 hover:bg-black'
                         ButtonText='Remove from Favourites'
                     />
                 </div>
@@ -327,7 +327,7 @@ return (
                     </Link>
                     <Button
                         onClick={() => RemoveFromFavourites(FavouritesID3)}
-                        ButtonStyle='bg-orange-700 cursor-pointer m-auto rounded text-center text-white px-3 py-2 w-2/3'
+                        ButtonStyle='bg-buttonOrange cursor-pointer m-auto rounded text-center text-white px-3 py-2 w-2/3 hover:bg-black'
                         ButtonText='Remove from Favourites'
                         />
                     </div>
@@ -355,7 +355,7 @@ return (
                     </Link>
                     <Button
                         onClick={() => RemoveFromFavourites(FavouritesID4)}
-                        ButtonStyle='bg-orange-700 cursor-pointer m-auto rounded text-center text-white px-3 py-2 w-2/3'
+                        ButtonStyle='bg-buttonOrange cursor-pointer m-auto rounded text-center text-white px-3 py-2 w-2/3 hover:bg-black'
                         ButtonText='Remove from Favourites'
                     />
                 </div>
@@ -383,7 +383,7 @@ return (
                     </Link>
                     <Button
                         onClick={() => RemoveFromFavourites(FavouritesID5)}
-                        ButtonStyle='bg-orange-700 cursor-pointer m-auto rounded text-center text-white px-3 py-2 w-2/3'
+                        ButtonStyle='bg-buttonOrange cursor-pointer m-auto rounded text-center text-white px-3 py-2 w-2/3 hover:bg-black'
                         ButtonText='Remove from Favourites'
                     />
                 </div>
@@ -411,7 +411,7 @@ return (
                     </Link>
                     <Button
                         onClick={() => RemoveFromFavourites(FavouritesID6)}
-                        ButtonStyle='bg-orange-700 cursor-pointer m-auto rounded text-center text-white px-3 py-2 w-2/3'
+                        ButtonStyle='bg-buttonOrange cursor-pointer m-auto rounded text-center text-white px-3 py-2 w-2/3 hover:bg-black'
                         ButtonText='Remove from Favourites'
                     />
                 </div>

@@ -71,7 +71,7 @@ return (
             onChange= {e => setSearch(e.target.value)}
             onSubmit= {onSearch}
             onClick= {onSearch}
-            ButtonStyle= 'bg-lightOrange px-3 py-1 rounded'
+            ButtonStyle= 'bg-buttonOrange px-3 py-1 rounded'
             IconStyle= 'cursor-pointer'
             SearchError= {SearchError}
             Text= 'Search any recipe e.g burger, pizza, sandwich'

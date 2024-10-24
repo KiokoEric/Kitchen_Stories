@@ -111,7 +111,7 @@ return (
                         </div>
                         <Button
                             onClick={() => AddToFavourites(Item.idMeal)}
-                            ButtonStyle='bg-darkOrange cursor-pointer m-auto rounded text-center text-white px-3 py-2 w-2/3 hover:bg-black sm:w-1/2'
+                            ButtonStyle='bg-buttonOrange cursor-pointer m-auto rounded text-center text-white px-3 py-2 w-2/3 hover:bg-black sm:w-1/2'
                             ButtonText='Add to Favourites'
                         />
                     </figcaption> 
