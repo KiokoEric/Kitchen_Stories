@@ -69,7 +69,7 @@ const Login: React.FC  = () => {
         <div>
             <Heading
                 idName='Login'
-                ContainerStyle='flex flex-col items-center justify-center gap-5 mb-10 text-center text-black'
+                ContainerStyle='flex flex-col items-center justify-center gap-5 mb-10 text-center text-white'
                 Heading='Login'
                 HeadingStyle='font-bold text-5xl'
             />
