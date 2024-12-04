@@ -12,7 +12,7 @@ import { useGetUserID } from "../../Components/Hooks/useGetUserID";
 const Explore: React.FC = () => {
 
     const UserID = useGetUserID();
-    const [Cookie, setCookie] = useCookies(["auth_token"])
+    const [Cookie, __] = useCookies(["auth_token"])
 
     // USESTATE HOOK
 

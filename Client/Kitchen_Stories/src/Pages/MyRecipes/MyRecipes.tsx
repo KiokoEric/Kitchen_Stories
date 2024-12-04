@@ -46,8 +46,9 @@ const MyRecipes: React.FC = () => {
         axios.delete(`http://localhost:4000/Recipe/${_id}`, {
             headers: { authorization: Cookie.auth_token }
         }) 
-        .then(
+        .then(() => {
             window.location.reload()
+        }
         )
     }
 

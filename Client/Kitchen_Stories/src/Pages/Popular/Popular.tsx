@@ -14,7 +14,7 @@ const Popular: React.FC = () => {
     // USESTATE HOOK
 
     const [Popular, setPopular] = useState<[]>([])
-    const [userOwner, setuserOwner] = useState<any>(UserID)
+    const [userOwner, __] = useState<any>(UserID)
 
     // CALLING ON POPULAR RECIPES FROM MEALDB API
 

@@ -17,9 +17,9 @@ const Home: React.FC = () => {
 
     // USESTATE HOOK
 
+    const [userOwner, __] = useState<any>(UserID)
     const [Recipes, setRecipes] = useState<[]>([])
     const [Search, setSearch] = useState<string>("")
-    const [userOwner, setuserOwner] = useState<any>(UserID)
     const [SearchError, setSearchError] = useState<string>("")
     const [ShowPopular, setShowPopular] = useState<boolean>(true)
 

@@ -17,10 +17,10 @@ const EditRecipe:React.FC = () => {
     // USESTATE HOOK
 
     const [Name, setName] = useState<string>("")
+    const [userOwner, __] = useState<any>(userID)
     const [Image, setImage] = useState<string>("")
     const [Success, setSuccess] = useState<string>("")
     const [Ingredients, setIngredients] = useState<[]>([])
-    const [userOwner, setuserOwner] = useState<any>(userID)
     const [Instructions, setInstructions] = useState<[]>([])
     const [Description, setDescription] = useState<string>("")
 
