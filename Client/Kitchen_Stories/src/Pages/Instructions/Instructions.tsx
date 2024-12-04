@@ -2,15 +2,7 @@ import { useParams } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import Details from '../../Components/Common/Ingredients/Ingredients';
 
-interface IntrinsicElements {
-    'ion-icon': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
-        name?: string;
-        color?: string;
-        size?: string;
-    };
-}
-
-const Instructions: React.FC<IntrinsicElements> = () => {
+const Instructions: React.FC = () => {
 
     const { MealId } = useParams()
 
