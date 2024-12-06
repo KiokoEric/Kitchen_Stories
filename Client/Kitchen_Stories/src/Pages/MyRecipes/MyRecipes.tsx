@@ -25,7 +25,7 @@ const MyRecipes: React.FC = () => {
     useEffect(() => {
 
         const fetchRecipes = async () => {
-            await axios.get(`http://localhost:4000/Recipe/${userID}/Recipes`, {
+            await axios.get(`https://cook-io-server.onrender.com/Recipe/${userID}/Recipes`, {
             headers: { authorization: Cookie.auth_token },
             }) 
             .then((Response) => {
@@ -43,7 +43,7 @@ const MyRecipes: React.FC = () => {
     // DELETE RECIPE
 
     const handleDelete= (_id: any) => {
-        axios.delete(`http://localhost:4000/Recipe/${_id}`, {
+        axios.delete(`https://cook-io-server.onrender.com/Recipe/${_id}`, {
             headers: { authorization: Cookie.auth_token }
         }) 
         .then(() => {

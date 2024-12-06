@@ -40,7 +40,7 @@ const Favourites: React.FC = () => {
     useEffect(() => {
 
         const fetchRecipeID = async () => {
-            await axios.get(`http://localhost:4000/Favourites/${UserID}/Favourites`, {
+            await axios.get(`https://cook-io-server.onrender.com/Favourites/${UserID}/Favourites`, {
             headers: { authorization: Cookie.auth_token },
             }) 
             .then((response) => {
@@ -50,7 +50,7 @@ const Favourites: React.FC = () => {
         }
 
         const fetchRecipeID2 = async () => {
-            await axios.get(`http://localhost:4000/Favourites/${UserID}/Favourites`, {
+            await axios.get(`https://cook-io-server.onrender.com/Favourites/${UserID}/Favourites`, {
             headers: { authorization: Cookie.auth_token },
             }) 
             .then((response) =>   {
@@ -60,7 +60,7 @@ const Favourites: React.FC = () => {
         }
 
         const fetchRecipeID3 = async () => {
-            await axios.get(`http://localhost:4000/Favourites/${UserID}/Favourites`, {
+            await axios.get(`https://cook-io-server.onrender.com/Favourites/${UserID}/Favourites`, {
             headers: { authorization: Cookie.auth_token },
             }) 
             .then((response) =>   {
@@ -70,7 +70,7 @@ const Favourites: React.FC = () => {
         }
 
         const fetchRecipeID4 = async () => {
-            await axios.get(`http://localhost:4000/Favourites/${UserID}/Favourites`, {
+            await axios.get(`https://cook-io-server.onrender.com/Favourites/${UserID}/Favourites`, {
             headers: { authorization: Cookie.auth_token },
             }) 
             .then((response) =>   {
@@ -80,7 +80,7 @@ const Favourites: React.FC = () => {
         }
 
         const fetchRecipeID5 = async () => {
-            await axios.get(`http://localhost:4000/Favourites/${UserID}/Favourites`, {
+            await axios.get(`https://cook-io-server.onrender.com/Favourites/${UserID}/Favourites`, {
             headers: { authorization: Cookie.auth_token },
             }) 
             .then((response) =>   {
@@ -90,7 +90,7 @@ const Favourites: React.FC = () => {
         }
 
         const fetchRecipeID6 = async () => {
-            await axios.get(`http://localhost:4000/Favourites/${UserID}/Favourites`, {
+            await axios.get(`https://cook-io-server.onrender.com/Favourites/${UserID}/Favourites`, {
             headers: { authorization: Cookie.auth_token },
             }) 
             .then((response) =>   {
@@ -239,7 +239,7 @@ const Favourites: React.FC = () => {
     // DELETE FROM FAVOURITES
 
     const RemoveFromFavourites = (id: any) => {
-        axios.delete(`http://localhost:4000/Favourites/${id}`, {
+        axios.delete(`https://cook-io-server.onrender.com/Favourites/${id}`, {
             headers: { authorization: Cookie.auth_token }
         }) 
         .then(() => {

@@ -27,7 +27,7 @@ const EditRecipe:React.FC = () => {
     // RECEIVING CREATED RECIPE DATA
 
     useEffect(() => {
-        axios.get(`http://localhost:4000/Recipe/${_id}`, {
+        axios.get(`https://cook-io-server.onrender.com/Recipe/${_id}`, {
                 headers: { authorization: Cookie.auth_token },
             }) 
         .then((Data) => { 
@@ -47,7 +47,7 @@ const EditRecipe:React.FC = () => {
         const data = {
             Name, Description, Ingredients, Instructions, Image, userOwner
         }
-        axios.put(`http://localhost:4000/Recipe/${_id}`, data , {
+        axios.put(`https://cook-io-server.onrender.com/Recipe/${_id}`, data , {
             headers: { authorization: Cookie.auth_token },
         }) 
         .then(() => {

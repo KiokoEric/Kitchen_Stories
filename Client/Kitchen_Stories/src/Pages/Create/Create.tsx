@@ -47,7 +47,7 @@ const Create: React.FC = () => {
 
     const AddRecipe: SubmitHandler<FormValues> = async (data: RecipeData) => {
         try {
-            await axios.post("http://localhost:4000/Recipe/AddRecipe", data, {
+            await axios.post("https://cook-io-server.onrender.com/Recipe/AddRecipe", data, {
                 headers: { authorization: Cookie.auth_token },
             }) 
             .then(() => {

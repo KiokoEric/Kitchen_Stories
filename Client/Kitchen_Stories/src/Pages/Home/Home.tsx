@@ -49,7 +49,7 @@ const Home: React.FC = () => {
             const data = {
                 ID, userOwner
             }
-            await axios.post(`http://localhost:4000/Favourites/Favourite/${ID}`, data, {
+            await axios.post(`https://cook-io-server.onrender.com/Favourites/Favourite/${ID}`, data, {
                 headers: { authorization: Cookie.auth_token },
             })
         } catch (error) {
