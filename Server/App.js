@@ -26,9 +26,9 @@ mongoose.connect(dbUrl)
 
 // IMPORT ROUTES
 
-const UserRoute = require("./Routes/UserRoute");
-const RecipeRoute = require("./Routes/RecipeRoute"); 
-const FavouriteRoute = require("./Routes/FavouritesRoute"); 
+const UserRoute = require("./Routes/UserRoute.js");
+const RecipeRoute = require("./Routes/RecipeRoute.js"); 
+const FavouriteRoute = require("./Routes/FavouritesRoute.js"); 
 
 app.use("/Users", UserRoute);
 app.use("/Recipe", RecipeRoute);

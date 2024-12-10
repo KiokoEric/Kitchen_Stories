@@ -2,7 +2,7 @@ const dotenv = require('dotenv');
 const express = require('express');
 const jwt = require("jsonwebtoken");
 const RecipeRoute = express.Router();
-const Recipe = require("../Models/Recipe");
+const Recipe = require("../Models/Recipe.js");
 const cookieParser = require("cookie-parser");
 
 RecipeRoute.use(cookieParser())

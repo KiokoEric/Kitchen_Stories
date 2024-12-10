@@ -1,7 +1,7 @@
 const express = require('express');
 const FavouriteRoute = express.Router();
 const cookieParser = require("cookie-parser");
-const Favourite = require("../Models/Favourites");
+const Favourite = require("../Models/Favourites.js");
 
 FavouriteRoute.use(cookieParser())
 
