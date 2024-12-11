@@ -51,7 +51,7 @@ const Login: React.FC  = () => {
     const DemoLogin = async (e: any) => {
         e.preventDefault()
         const data = {
-            Email : "kiokoerick040@gmail.com" , Password : "Victory2024"
+            Email : "marymasika@gmail.com" , Password : "Triumph2025"
         }
         try {
                 const response = await axios.post(`https://cook-io-server.onrender.com/Users/Login`, data)
