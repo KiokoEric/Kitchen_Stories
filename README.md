@@ -16,7 +16,7 @@ The website application was built using React JS, TypeScript, Express JS, Mongo 
   <h3 align="center" >Home Section</h3>
 
   <div align="center" >
-    <img  src="https://i.postimg.cc/65SfxB2m/Cook-io-Home-Page.jpg"> 
+    <img  src="https://i.postimg.cc/pT3v4KDZ/HomePage.jpg"> 
 
   </div>
 
@@ -31,7 +31,7 @@ The website application was built using React JS, TypeScript, Express JS, Mongo 
   <h3 align="center" >Explore Section</h3>
 
   <div align="center" >
-    <img  src="https://i.postimg.cc/QtbvfFMP/Cook-io-Explore-Page.jpg"> 
+    <img  src="https://i.postimg.cc/gc6mRBWB/Explore-Page.jpg"> 
 
   </div>
 
@@ -44,7 +44,7 @@ The website application was built using React JS, TypeScript, Express JS, Mongo 
   <h3 align="center" >Categories Section</h3>
 
   <div align="center" >
-    <img  src="https://i.postimg.cc/Fs1wxsXW/Cook-io-Categories-Page.jpg"> 
+    <img  src="https://i.postimg.cc/zXZ5kSDD/Categories-Page.jpg"> 
 
   </div>
 
@@ -54,28 +54,24 @@ The website application was built using React JS, TypeScript, Express JS, Mongo 
 </div>
 
 <div>
-  
-<h3 align="center" >Favourites Page Section</h3>
+  <h3 align="center" >Nationalities Section</h3>
 
-  <div align="center">
-    <img  src="https://i.postimg.cc/NFRDdVb0/Cook-io-Favourites-Page.jpg"> 
+  <div align="center" >
+    <img  src="https://i.postimg.cc/mkcDFbSd/Nationalities-Page.jpg"> 
 
   </div>
 
-  <br> 
-
-  <p align="center" >
-    The Favourites Page Section allows users 
-  </p>
+  <br>
   
+  <p align="center">The Nationalities Section allows users to explore different cuisines from different nations across the world.</p>
 </div>
 
 <div>
   
-<h3 align="center" >Favourites Section</h3>
+<h3 align="center" >Favourites Page Section</h3>
 
   <div align="center" >
-    <img  src="https://i.postimg.cc/NFRDdVb0/Cook-io-Favourites-Page.jpg"> 
+    <img  src="https://i.postimg.cc/rF1TZ0z1/Favourites-Page.jpg"> 
 
   </div>
 
@@ -86,7 +82,7 @@ The website application was built using React JS, TypeScript, Express JS, Mongo 
 <h3 align="center" >Create Recipe Section</h3>
 
   <div align="center" >
-    <img  src="https://i.postimg.cc/RVk96nJQ/Cook-io-Create-Page.jpg"> 
+    <img  src="https://i.postimg.cc/rsgJzNQG/Create-Page.jpg"> 
 
   </div>
 
@@ -98,7 +94,7 @@ The website application was built using React JS, TypeScript, Express JS, Mongo 
 <h3 align="center" >My Recipes Section</h3>
 
   <div align="center" >
-    <img  src="https://i.postimg.cc/RF2973bB/Cook-io-Recipes-Page.jpg"> 
+    <img  src="https://i.postimg.cc/SRQL0zkn/My-Recipes.jpg"> 
 
   </div>
 
