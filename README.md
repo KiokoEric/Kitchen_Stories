@@ -5,7 +5,7 @@ Kitchen Stories is a recipe website that caters to food enthusiasts of all level
 
   <br><br>
   
-The website application was built using React JS, TypeScript, Express JS, Mongo DB and use of Meal DB API.
+The website application was built using React JS, Tailwind CSS, TypeScript, Express JS, Mongo DB, and the Meal DB API.
 
 [Live Demo](https://kitchenstories-ten.vercel.app)
 </div>
