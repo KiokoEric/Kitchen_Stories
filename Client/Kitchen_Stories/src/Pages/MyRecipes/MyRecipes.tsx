@@ -60,7 +60,7 @@ return (
             Heading='My Recipes'
             HeadingStyle='font-bold text-5xl'
         />
-        <section className='grid grid-cols-1 items-center justify-center gap-8 m-auto w-11/12 sm:grid-cols-3'>
+        <section className='grid grid-cols-1 items-center justify-end gap-8 m-auto w-11/12 sm:grid-cols-3'>
             {isLoading ? (
                 <div className="flex flex-col items-center justify-center m-auto w-custom">
                     <img src={loadingGif} alt="Loading Gif..." id="Loading" />
@@ -69,7 +69,7 @@ return (
             (Recipes.length > 0) ?  
             Recipes.map((Recipe : any) => { 
             return (
-            <div className="flex flex-col items-end justify-center" >
+            <div className="flex flex-col items-center justify-center" >
                 <Link key={Recipe.index}  to={`/Information/${Recipe._id}`} className='flex flex-col gap-3 text-black no-underline'> 
                     <Output
                         figureStyle='flex flex-col gap-5 mb-5'
