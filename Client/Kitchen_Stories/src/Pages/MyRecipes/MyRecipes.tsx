@@ -56,7 +56,7 @@ return (
     <div className="mb-10" >
         <Heading
             idName='MyRecipes'
-            ContainerStyle='flex flex-col items-center justify-center gap-5 mb-8 text-center text-white'
+            ContainerStyle='flex flex-col items-end justify-center gap-5 mb-8 text-center text-white'
             Heading='My Recipes'
             HeadingStyle='font-bold text-5xl'
         />
