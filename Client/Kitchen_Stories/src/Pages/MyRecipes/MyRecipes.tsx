@@ -56,11 +56,11 @@ return (
     <div className="mb-10" >
         <Heading
             idName='MyRecipes'
-            ContainerStyle='flex flex-col items-end justify-center gap-5 mb-8 text-center text-white'
+            ContainerStyle='flex flex-col items-center justify-center gap-5 mb-8 text-center text-white'
             Heading='My Recipes'
             HeadingStyle='font-bold text-5xl'
         />
-        <section className='grid grid-cols-1 items-end justify-center gap-8 m-auto w-11/12 sm:grid-cols-3'>
+        <section className='grid grid-cols-1 items-center justify-center gap-8 m-auto w-11/12 sm:grid-cols-3'>
             {isLoading ? (
                 <div className="flex flex-col items-center justify-center m-auto w-custom">
                     <img src={loadingGif} alt="Loading Gif..." id="Loading" />
