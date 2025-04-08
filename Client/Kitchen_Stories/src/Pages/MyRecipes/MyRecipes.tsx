@@ -69,7 +69,7 @@ return (
             (Recipes.length > 0) ?  
             Recipes.map((Recipe : any) => { 
             return (
-            <div className="flex flex-col items-center justify-end" >
+            <div className="flex flex-col items-end justify-center" >
                 <Link key={Recipe.index}  to={`/Information/${Recipe._id}`} className='flex flex-col gap-3 text-black no-underline'> 
                     <Output
                         figureStyle='flex flex-col gap-5 mb-5'
